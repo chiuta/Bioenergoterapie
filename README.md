@@ -1,0 +1,63 @@
+# Bioenergoterapie — curs interactiv
+
+Curs educativ despre bioenergoterapie și sistemul Pranic Healing, într-un singur fișier HTML, offline. Practică bazată pe credințe, fără dovezi științifice de vindecare.
+
+**Live:** https://chiuta.github.io/Bioenergoterapie/
+
+![Captura de ecran](screenshot.png)
+
+> **Avertisment.** Bioenergoterapia nu este medicină și nu tratează boli. Câmpul energetic, aura și chakrele sunt concepte din tradiții spirituale și nu au fost demonstrate științific; nu există dovezi că bioenergoterapia vindecă vreo afecțiune. Nu amâna și nu întrerupe un tratament prescris de medic. Avertismentul este afișat permanent în partea de sus a fiecărei pagini a aplicației.
+
+## Ce este
+
+O aplicație de învățare în română despre bioenergoterapie așa cum o descriu practicanții: „câmpul energetic uman", repere istorice (Therapeutic Touch, Pranic Healing, tradiții qigong și prana), cele cinci niveluri ale sistemului Pranic Healing ca schelet pedagogic, comparații între tradiții, glosar. Conținutul descrie ce susțin practicanții și nu recomandă tratamente. Detaliile istorice și cele despre România pe care nu le-am putut verifica sunt marcate „[neverificat]".
+
+## Funcții
+
+Verificate în cod și în browser:
+- 13 secțiuni (meniu lateral, ☰ pe mobil): Introducere, Istoric, Câmpul energetic (cu diagramă SVG a axei chakrelor), cinci niveluri de formare cu exerciții, Aplicații practice, Școli internaționale, Glosar, Jurnal, Autoevaluare.
+- Căutare în curs, fără sensibilitate la diacritice.
+- Linkuri directe către secțiuni (de exemplu `#camp`), butonul „înapoi" al browserului funcționează între secțiuni.
+- Tipărire (doar secțiunea afișată, alb-negru), distribuire (link), ecran complet, menținerea ecranului activ (unde browserul o permite).
+- Jurnal de practică: text liber, descărcabil ca `.txt`, cu confirmare la golire.
+- Autoevaluare de 10 întrebări cu explicații; ordinea răspunsurilor se amestecă la fiecare încercare.
+- Respectă `prefers-reduced-motion`; funcționează de la 390 px lățime; fără JavaScript se afișează toate secțiunile.
+
+## Manual de utilizare
+
+1. Deschide pagina și alege o secțiune din meniul din stânga (pe mobil, apasă ☰).
+2. Caută un termen în câmpul de căutare; apasă Enter sau alege un rezultat.
+3. Exercițiile marcate „Exercițiu practic" sunt exerciții de atenție și vizualizare, nu proceduri terapeutice.
+4. În „Jurnal" scrie notițe și descarcă-le (`.txt`) înainte de a închide pagina: nu se salvează nicăieri.
+5. În „Autoevaluare" răspunde la întrebări; „Reia testul" amestecă din nou răspunsurile.
+
+## Confidențialitate și rețea
+
+- Stocare locală: aplicația nu folosește `localStorage`, `sessionStorage`, IndexedDB sau cookie-uri. Jurnalul există doar în memoria paginii.
+- Rețea: aplicația nu face nicio cerere de rețea și nu conține linkuri externe; o politică CSP (`default-src 'none'`) blochează orice încărcare externă. În `<head>` apar doar adrese în metadatele Open Graph (`chiuta.github.io`), neaccesate de aplicație.
+- Permisiuni: nu cere permisiuni. „Ecran activ" (Screen Wake Lock) și „Distribuie" (meniul de partajare sau clipboard) funcționează doar la apăsarea butoanelor.
+- Zero telemetrie, fără conturi.
+
+## Limite și avertismente
+
+- Nu este material medical și nu înlocuiește diagnosticul sau tratamentul. Pentru orice simptom persistent, mergi la medic; aplicația nu recomandă nicio procedură pentru boli.
+- Câmpul energetic, aura, chakrele și „prana colorată" nu au fost demonstrate științific; cercetările controlate asupra practicilor înrudite (de exemplu Therapeutic Touch) nu au găsit eficacitate dincolo de placebo. Mențiunea unui experiment publicat în JAMA în 1998 este din memoria autorului aplicației și trebuie verificată înainte de a fi citată.
+- Structura pe cinci niveluri urmează sistemul Pranic Healing și nu este singura organizare posibilă a domeniului.
+- Afirmațiile despre statutul bioenergoterapiei în România și despre „bioenergoterapia central-europeană" sunt marcate neverificate.
+- Practicile „la distanță" sunt prezentate ca premisă a practicanților, fără dovezi de efect.
+
+## Rulare locală / offline
+
+Descarcă `index.html` și deschide-l în browser; nu are nevoie de internet. Pentru GitHub Pages, publică repository-ul (fișierul `.nojekyll` este inclus).
+
+## Licență
+
+Licența nu este încă declarată.
+
+## Autor
+
+Alexio — Alexandru-Ionuț Chiuță, contact: alexio@trom.tf
+
+## English summary
+
+Bioenergoterapie is a single-file, offline, Romanian-language course on "bioenergy therapy" as practitioners describe it, structured around the Pranic Healing levels, with history, comparisons, glossary, practice journal and a 10-question quiz. A permanent notice states that the practice is not medicine and has no scientific evidence of healing; energy fields, auras and chakras are not scientifically demonstrated. The app makes no network requests, uses no browser storage and requests no permissions. Unverified historical and local claims are marked in the text.

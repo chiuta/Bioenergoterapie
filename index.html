@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; base-uri 'none'; form-action 'none'">
+<meta name="theme-color" content="#0B2426">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Bioenergoterapie — curs interactiv">
+<meta property="og:description" content="Curs interactiv despre bioenergoterapie: câmpul energetic așa cum îl descriu practicanții, istoric, nivelurile sistemului Pranic Healing, exerciții, diagrama chakrelor, comparații, glosar, jurnal și autoevaluare. Fără dovezi științifice de vindecare. Offline, fără frontiere.">
+<meta property="og:image" content="https://chiuta.github.io/Bioenergoterapie/screenshot.png">
+<meta property="og:url" content="https://chiuta.github.io/Bioenergoterapie/">
+<noscript><style>.panel{display:block !important;margin-bottom:48px}.nav-toggle,.toolbar{display:none !important}.disclaimer{position:static !important}</style></noscript>
+<title>Bioenergoterapie — curs interactiv</title>
+<meta name="description" content="Curs interactiv despre bioenergoterapie: câmpul energetic așa cum îl descriu practicanții, istoric, nivelurile sistemului Pranic Healing, exerciții, diagrama chakrelor, comparații, glosar, jurnal și autoevaluare. Fără dovezi științifice de vindecare. Offline, fără frontiere.">
+<style>
+  :root{
+    --bg:#0B2426;
+    --bg-panel:#123236;
+    --bg-panel-2:#0E2B2E;
+    --ink:#EAF6F3;
+    --ink-soft:#A9C9C6;
+    --line:#1F4448;
+    --accent:#59D9C7;
+    --accent-deep:#3BA695;
+    --violet:#B189D9;
+    --violet-soft:rgba(177,137,217,.14);
+    --glow:rgba(89,217,199,.22);
+    --radius-s:4px;
+    --radius-m:10px;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --disp:"Avenir Next","Century Gothic",var(--sans);
+    --maxw:760px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:var(--sans);line-height:1.65;-webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--glow)}
+  a{color:var(--accent)}
+  .app{display:flex;min-height:100vh}
+
+  .sidebar{
+    width:272px;flex:0 0 272px;background:var(--bg-panel-2);color:#CDE6E2;
+    padding:28px 20px 40px;position:sticky;top:0;height:100vh;overflow-y:auto;
+    border-right:1px solid var(--line);
+  }
+  .brand{margin-bottom:26px}
+  .brand .mark{width:52px;height:52px;margin-bottom:12px;display:block}
+  .brand h1{
+    font-family:var(--disp);font-size:1.45rem;font-weight:700;margin:0 0 4px;color:#fff;
+    letter-spacing:.01em;
+  }
+  .brand p{margin:0;font-size:.82rem;color:#7FA7A2;max-width:24ch}
+  .navgroup{margin-top:22px}
+  .navgroup h2{
+    font-size:.66rem;color:#5E8B86;margin:0 0 8px;font-weight:700;letter-spacing:.05em;
+  }
+  .navlist{list-style:none;margin:0 0 6px;padding:0}
+  .navlist a{
+    display:flex;align-items:baseline;gap:8px;text-decoration:none;color:#B9D8D4;
+    padding:7px 10px;border-radius:var(--radius-s);font-size:.92rem;
+    border-left:2px solid transparent;
+  }
+  .navlist a .num{color:#5E8B86;font-size:.8em;font-weight:600}
+  .navlist a:hover{background:rgba(89,217,199,.08);color:#fff}
+  .navlist a.active{background:rgba(89,217,199,.15);color:#fff;border-left:2px solid var(--accent)}
+  .nav-toggle{
+    display:none;position:fixed;top:14px;left:14px;z-index:50;width:42px;height:42px;
+    border-radius:50%;background:var(--bg-panel-2);color:#fff;border:1px solid var(--line);
+    font-size:1.1rem;box-shadow:0 3px 10px rgba(0,0,0,.4);
+  }
+
+  .toolbar{
+    position:sticky;top:0;z-index:10;
+    display:flex;gap:10px;align-items:flex-start;flex-wrap:wrap;
+    background:var(--bg);padding:10px 0 16px;margin-bottom:10px;
+    border-bottom:1px solid var(--line);
+  }
+  .search-wrap{position:relative;flex:1 1 240px;max-width:340px}
+  .search-wrap input{
+    width:100%;padding:9px 12px;border:1px solid var(--line);border-radius:var(--radius-s);
+    font-size:.9rem;background:var(--bg-panel);color:var(--ink);font-family:var(--sans);
+  }
+  .search-wrap input:focus{outline:none;border-color:var(--accent)}
+  .search-results{
+    display:none;position:absolute;top:calc(100% + 4px);left:0;right:0;
+    background:var(--bg-panel);border:1px solid var(--line);border-radius:var(--radius-s);
+    box-shadow:0 8px 22px rgba(0,0,0,.4);max-height:260px;overflow-y:auto;z-index:20;
+  }
+  .search-results.show{display:block}
+  .sr-item{padding:9px 12px;font-size:.88rem;cursor:pointer;border-bottom:1px solid var(--line);color:var(--ink)}
+  .sr-item:last-child{border-bottom:none}
+  .sr-item:hover{background:rgba(89,217,199,.1)}
+  .sr-empty{padding:10px 12px;font-size:.85rem;color:var(--ink-soft)}
+  .tool-btns{display:flex;gap:6px}
+  .tool-btns button{
+    width:38px;height:38px;border-radius:var(--radius-s);border:1px solid var(--line);
+    background:var(--bg-panel);color:var(--ink);font-size:1.05rem;cursor:pointer;
+  }
+  .tool-btns button:hover{border-color:var(--accent);color:var(--accent)}
+  .tool-btns button.active{background:var(--accent);color:#062523;border-color:var(--accent)}
+  .tool-btns button:disabled{opacity:.35;cursor:not-allowed}
+
+  .content{flex:1;min-width:0;padding:24px 48px 100px}
+  .panel{display:none;max-width:var(--maxw);margin:0 auto;animation:fade .35s ease}
+  .panel.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+  .eyebrow{font-size:.85rem;color:var(--accent);margin:0 0 6px;font-weight:600}
+  h2.title{font-family:var(--disp);font-size:2.05rem;font-weight:700;margin:0 0 18px;line-height:1.18;color:#fff}
+  h3{font-family:var(--disp);font-size:1.3rem;margin:32px 0 10px;color:#fff;font-weight:700}
+  p{margin:0 0 15px;color:var(--ink-soft);max-width:66ch}
+  p.lede{font-size:1.12rem;color:var(--ink);max-width:60ch}
+  ul.plain,ol.plain{margin:0 0 15px;padding-left:22px;color:var(--ink-soft)}
+  ul.plain li,ol.plain li{margin-bottom:7px}
+  strong{color:var(--ink)}
+
+  .hero-visual{width:100%;max-width:240px;margin:0 auto 8px;display:block}
+
+  .card{background:var(--bg-panel);border:1px solid var(--line);border-radius:var(--radius-m);padding:20px 22px;margin:0 0 16px}
+  .card h4{margin:0 0 8px;font-family:var(--disp);font-size:1.05rem;color:#fff}
+  .card p{margin:0;font-size:.95rem}
+
+  .exercise{background:#0F3A3D;border:1px solid var(--accent-deep);border-radius:var(--radius-m);padding:18px 20px;margin:22px 0}
+  .exercise .ex-label{font-size:.78rem;font-weight:700;color:var(--accent);margin:0 0 8px;display:block}
+  .exercise ol,.exercise ul{margin:6px 0 0;padding-left:20px}
+  .exercise li{margin-bottom:6px;font-size:.94rem;color:var(--ink-soft)}
+  .exercise p{font-size:.94rem;margin:6px 0 0}
+
+  .timeline{border-left:2px solid var(--line);margin:24px 0 0;padding:0 0 0 22px}
+  .tl-item{position:relative;padding-bottom:26px}
+  .tl-item::before{content:"";position:absolute;left:-27px;top:4px;width:10px;height:10px;border-radius:50%;background:var(--accent)}
+  .tl-item .yr{font-family:var(--disp);color:var(--accent);font-weight:700;font-size:1rem}
+  .tl-item p{margin:4px 0 0}
+
+  .layers{list-style:none;margin:18px 0;padding:0}
+  .layers li{
+    padding:12px 16px;margin-bottom:8px;background:var(--violet-soft);
+    border-radius:var(--radius-s);color:var(--ink);font-size:.98rem;border-left:3px solid var(--violet);
+  }
+  .layers li strong{display:block;font-family:var(--disp);color:#fff;margin-bottom:2px}
+
+  .grade-head{display:flex;align-items:center;gap:16px;margin-bottom:6px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+  .grade-badge{
+    width:56px;height:56px;border-radius:50%;flex:0 0 56px;
+    background:radial-gradient(circle at 35% 30%,var(--accent) 0%,var(--accent-deep) 100%);
+    color:#062523;display:flex;align-items:center;justify-content:center;
+    font-family:var(--disp);font-size:1.35rem;font-weight:700;box-shadow:0 4px 18px var(--glow);
+  }
+  .grade-head .sub{font-size:.85rem;color:var(--violet);font-weight:600;margin:0 0 2px}
+  .grade-head h2.title{margin:0}
+
+  .focus-row{display:flex;gap:14px;flex-wrap:wrap;margin:18px 0 6px}
+  .focus-item{flex:1 1 160px;background:var(--bg-panel);border:1px solid var(--line);border-radius:var(--radius-s);padding:12px 14px}
+  .focus-item .lbl{font-size:.72rem;color:var(--accent);font-weight:600;margin-bottom:4px}
+  .focus-item .val{font-size:.94rem;color:var(--ink)}
+
+  .diagram-box{background:var(--bg-panel);border:1px solid var(--line);border-radius:var(--radius-m);padding:22px;margin:24px 0;text-align:center}
+  .diagram-box svg{max-width:100%;height:auto}
+  .diagram-legend{display:grid;grid-template-columns:repeat(2,1fr);gap:8px 18px;margin-top:16px;text-align:left;max-width:380px;margin-left:auto;margin-right:auto}
+  .diagram-legend div{font-size:.86rem;color:var(--ink-soft);display:flex;gap:8px;align-items:baseline}
+  .diagram-legend .n{font-family:var(--disp);font-weight:700;color:var(--accent)}
+
+  table.compare{width:100%;border-collapse:collapse;margin:18px 0 28px;font-size:.92rem}
+  table.compare th,table.compare td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.compare th{font-family:var(--disp);font-weight:700;color:#fff;border-bottom:2px solid var(--accent-deep);font-size:.88rem}
+  table.compare td{color:var(--ink-soft)}
+  table.compare tr:last-child td{border-bottom:none}
+
+  dl.glossary{margin:0}
+  dl.glossary div{padding:14px 0;border-bottom:1px solid var(--line)}
+  dl.glossary dt{font-family:var(--disp);font-weight:700;color:#fff;font-size:1rem}
+  dl.glossary dd{margin:4px 0 0;color:var(--ink-soft);font-size:.94rem}
+
+  .note{background:var(--violet-soft);border-left:3px solid var(--violet);border-radius:var(--radius-s);padding:12px 16px;margin:18px 0;font-size:.9rem;color:var(--ink-soft)}
+
+  .journal-area{
+    width:100%;border:1px solid var(--line);border-radius:var(--radius-s);
+    padding:14px;font-family:var(--sans);font-size:.95rem;color:var(--ink);
+    background:var(--bg-panel);resize:vertical;line-height:1.55;
+  }
+  .journal-area:focus{outline:none;border-color:var(--accent)}
+  .journal-btns{display:flex;gap:10px;margin-top:12px}
+  .btn-ghost{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+  .btn-ghost:hover{background:var(--violet-soft);color:#fff}
+
+  #quizRoot .q{background:var(--bg-panel);border:1px solid var(--line);border-radius:var(--radius-m);padding:18px 20px;margin-bottom:14px}
+  #quizRoot .q p.qtext{font-weight:700;color:#fff;margin:0 0 12px;font-size:1rem}
+  #quizRoot .opts{display:flex;flex-direction:column;gap:8px}
+  #quizRoot label{display:flex;gap:10px;align-items:flex-start;padding:9px 12px;border:1px solid var(--line);border-radius:var(--radius-s);cursor:pointer;font-size:.94rem;color:var(--ink-soft)}
+  #quizRoot label:hover{border-color:var(--accent)}
+  #quizRoot input{margin-top:3px}
+  #quizRoot label.correct{border-color:var(--accent);background:rgba(89,217,199,.12);color:var(--ink)}
+  #quizRoot label.wrong{border-color:#D98A6E;background:rgba(217,138,110,.12);color:var(--ink)}
+  .qz-explain{font-size:.85rem;color:var(--accent);margin:10px 0 0;display:none}
+  .qz-explain.show{display:block}
+  #quizScore{font-family:var(--disp);font-size:1.3rem;margin:20px 0;padding:18px 22px;background:var(--accent-deep);color:#062523;border-radius:var(--radius-m);display:none;font-weight:700}
+  #quizScore.show{display:block}
+  .btn{background:var(--accent-deep);color:#062523;border:none;padding:11px 22px;border-radius:var(--radius-s);font-size:.95rem;cursor:pointer;font-family:var(--sans);font-weight:700}
+  .btn:hover{background:var(--accent)}
+
+  footer.appfoot{max-width:var(--maxw);margin:50px auto 0;color:#5E8B86;font-size:.8rem}
+
+  @media (max-width:880px){
+    .sidebar{position:fixed;left:0;top:0;z-index:40;transform:translateX(-100%);transition:transform .25s ease;box-shadow:0 0 30px rgba(0,0,0,.5)}
+    .sidebar.open{transform:translateX(0)}
+    .nav-toggle{display:block}
+    .content{padding:70px 20px 80px}
+    h2.title{font-size:1.55rem}
+    .toolbar{padding-top:0}
+    .diagram-legend{grid-template-columns:1fr}
+  }
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.panel{animation:none}}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+  @media print{
+    .sidebar,.nav-toggle,.toolbar,.btn,#quizReset{display:none !important}
+    .content{padding:0}
+    .app{display:block}
+    body{background:#fff;color:#000}
+    .panel{display:block !important;max-width:100%;page-break-after:always;animation:none}
+    .panel:last-child{page-break-after:auto}
+  }
+
+  /* ---------- Revizuire: accesibilitate, disclaimer, print ---------- */
+  .sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  .disclaimer{
+    position:sticky;top:0;z-index:12;background:var(--dis-bg);color:var(--dis-ink);
+    border:1px solid var(--dis-line);border-left-width:4px;border-radius:var(--radius-s);
+    padding:9px 14px;margin:0 0 10px;font-size:.84rem;line-height:1.45;box-shadow:0 10px 0 var(--bg);
+  }
+  .disclaimer strong{color:inherit}
+  .brand .brand-warn{margin-top:10px;font-size:.78rem;max-width:26ch;color:var(--side-warn)}
+  .toolbar{top:var(--dh,0px)}
+  .tool-btns button{width:44px;height:44px}
+  .nav-toggle{width:44px;height:44px}
+  .sr-item{display:block;width:100%;text-align:left;background:transparent;border:0;border-bottom:1px solid var(--line);font-family:inherit;color:var(--ink)}
+  .sr-item:focus-visible{outline-offset:-2px}
+  .tool-btns button[aria-pressed="true"]{outline:0}
+  .nav-toggle{min-width:44px}
+  .qz-explain strong{color:inherit}
+  noscript .note{margin:10px 0}
+  @media (max-width:880px){
+    .sidebar{visibility:hidden;transition:transform .25s ease,visibility 0s .25s}
+    .sidebar.open{visibility:visible;transition:transform .25s ease}
+    .disclaimer{position:static;margin-top:0;box-shadow:none}
+    .toolbar{position:static}
+    table.compare{font-size:.84rem}
+    table.compare th,table.compare td{padding:8px 6px;overflow-wrap:anywhere}
+  }
+  @media print{
+    .disclaimer{position:static;display:block !important;border:1px solid #000;color:#000;background:#fff}
+    .panel{display:none !important}
+    .panel.active{display:block !important;page-break-after:auto}
+    .tool-btns,.search-wrap,#liveStatus{display:none !important}
+  }
+  :root{--dis-bg:#3A2E10;--dis-ink:#FFF1CC;--dis-line:#E8B94A;--side-warn:#F2D9A0}
+  .navgroup h2{font-size:.76rem;color:#8DB6B1}
+  .navlist a .num{color:#8DB6B1}
+  .focus-item .lbl{font-size:.75rem}
+  @media print{
+    *{color:#000 !important;background:transparent !important;box-shadow:none !important}
+    .disclaimer{border-color:#000 !important}
+  }
+</style>
+</head>
+<body>
+<button class="nav-toggle" id="navToggle" type="button" aria-controls="sidebar" aria-expanded="false" aria-label="Deschide meniul">☰</button>
+<div class="app">
+  <nav class="sidebar" id="sidebar" aria-label="Meniu principal">
+    <div class="brand">
+      <svg class="mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <ellipse cx="50" cy="50" rx="12" ry="16" fill="#59D9C7"/>
+        <ellipse cx="50" cy="50" rx="24" ry="32" fill="none" stroke="#59D9C7" stroke-width="1.6" opacity=".5"/>
+        <ellipse cx="50" cy="50" rx="36" ry="46" fill="none" stroke="#B189D9" stroke-width="1.2" opacity=".35"/>
+      </svg>
+      <h1>Bioenergoterapie</h1>
+      <p>Curs interactiv despre „câmpul energetic uman” și practicile numite bioenergoterapie</p>
+      <p class="brand-warn">Fără dovezi științifice de vindecare · nu înlocuiește medicul</p>
+    </div>
+    <div class="navgroup">
+      <h2>Bazele</h2>
+      <ul class="navlist">
+        <li><a href="#intro" data-target="intro" class="active"><span class="num">·</span> Introducere</a></li>
+        <li><a href="#istoric" data-target="istoric"><span class="num">·</span> Istoric</a></li>
+        <li><a href="#camp" data-target="camp"><span class="num">·</span> Câmpul energetic</a></li>
+      </ul>
+    </div>
+    <div class="navgroup">
+      <h2>Nivelurile de formare</h2>
+      <ul class="navlist">
+        <li><a href="#n1" data-target="n1"><span class="num">1</span> Bioenergie elementară</a></li>
+        <li><a href="#n2" data-target="n2"><span class="num">2</span> Bioenergie intermediară</a></li>
+        <li><a href="#n3" data-target="n3"><span class="num">3</span> Lucrul la distanță</a></li>
+        <li><a href="#n4" data-target="n4"><span class="num">4</span> Bioenergie avansată</a></li>
+        <li><a href="#n5" data-target="n5"><span class="num">5</span> Ramuri specializate</a></li>
+      </ul>
+    </div>
+    <div class="navgroup">
+      <h2>Practică &amp; context</h2>
+      <ul class="navlist">
+        <li><a href="#aplicatii" data-target="aplicatii"><span class="num">·</span> Aplicații practice</a></li>
+        <li><a href="#comparativ" data-target="comparativ"><span class="num">·</span> Școli internaționale</a></li>
+        <li><a href="#glosar" data-target="glosar"><span class="num">·</span> Glosar</a></li>
+        <li><a href="#jurnal" data-target="jurnal"><span class="num">·</span> Jurnal</a></li>
+        <li><a href="#quiz" data-target="quiz"><span class="num">·</span> Autoevaluare</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="content" id="main">
+    <div class="disclaimer" id="disclaimer" role="note"><strong>Bioenergoterapia nu este medicină și nu tratează boli.</strong> Câmpul energetic, aura și chakrele sunt concepte din tradiții spirituale și nu au fost demonstrate științific; nu există dovezi că bioenergoterapia vindecă vreo afecțiune. Nu amâna și nu întrerupe un tratament prescris de medic. Conținutul descrie ce susțin practicanții, cu scop educativ și cultural.</div>
+    <span id="liveStatus" class="sr-only" role="status" aria-live="polite"></span>
+    <div class="toolbar" role="toolbar" aria-label="Instrumente">
+      <div class="search-wrap">
+        <input type="text" id="searchInput" placeholder="Caută în curs…" aria-label="Căutare în curs" autocomplete="off" aria-controls="searchResults">
+        <div class="search-results" id="searchResults" aria-live="polite"></div>
+      </div>
+      <div class="tool-btns">
+        <button type="button" id="btnPrint" title="Printează / exportă PDF" aria-label="Printează">⎙</button>
+        <button type="button" id="btnShare" title="Distribuie" aria-label="Distribuie">⤴</button>
+        <button type="button" id="btnFullscreen" aria-pressed="false" title="Ecran complet" aria-label="Ecran complet">⛶</button>
+        <button type="button" id="btnWakeLock" aria-pressed="false" title="Păstrează ecranul activ" aria-label="Păstrează ecranul activ">◐</button>
+      </div>
+    </div>
+
+    <section id="p-intro" data-panel="intro" class="panel active">
+      <svg class="hero-visual" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <ellipse cx="110" cy="110" rx="18" ry="24" fill="#59D9C7">
+          <animate attributeName="ry" values="24;28;24" dur="4s" repeatCount="indefinite"/>
+        </ellipse>
+        <ellipse cx="110" cy="110" rx="42" ry="56" fill="none" stroke="#59D9C7" stroke-width="1.6" opacity=".45">
+          <animate attributeName="opacity" values=".45;.12;.45" dur="4s" repeatCount="indefinite"/>
+        </ellipse>
+        <ellipse cx="110" cy="110" rx="66" ry="84" fill="none" stroke="#B189D9" stroke-width="1.3" opacity=".3">
+          <animate attributeName="opacity" values=".3;.05;.3" dur="4s" begin=".5s" repeatCount="indefinite"/>
+        </ellipse>
+        <ellipse cx="110" cy="110" rx="90" ry="105" fill="none" stroke="#B189D9" stroke-width="1" opacity=".15">
+          <animate attributeName="opacity" values=".15;.02;.15" dur="4s" begin="1s" repeatCount="indefinite"/>
+        </ellipse>
+      </svg>
+      <p class="eyebrow">Curs interactiv</p>
+      <h2 class="title">Bioenergoterapie — câmpul energetic uman</h2>
+      <p class="lede">Bioenergoterapia grupează practici care abordează sănătatea prin lucrul asupra unui presupus câmp energetic al corpului — numit, în diverse tradiții, <em>prana</em>, <em>chi/qi</em> sau, generic, „bioenergie”. Practicanții afirmă că percep, curăță și reechilibrează acest câmp prin tehnici manuale sau la distanță, fără atingere fizică obligatorie. Existența câmpului nu a fost demonstrată științific.</p>
+      <p>Spre deosebire de Reiki, care are linii de transmisie relativ bine atestate, bioenergoterapia este un câmp mai larg, cu rădăcini paralele în mai multe culturi și fără un singur corp de certificare universal recunoscut. Aplicația structurează cursul pe scheletul celui mai formalizat sistem de acest tip (cu niveluri și certificare) — <strong>Pranic Healing</strong>, dezvoltat de Choa Kok Sui — și îl pune în context alături de alte tradiții, inclusiv practica din România. Cinci niveluri, o diagramă a axei energetice, exerciții practice pentru fiecare nivel și un jurnal de practică completează cursul.</p>
+      <div class="note"><strong>Ce spun dovezile.</strong> Bioenergoterapia se bazează pe credințe, nu pe un mecanism demonstrat: „bioenergia”, aura și chakrele nu au putut fi detectate prin măsurători științifice, iar cercetările controlate asupra practicilor înrudite (de exemplu Therapeutic Touch) nu au găsit dovezi de eficacitate dincolo de efectul placebo și de relaxare. Unii oameni le găsesc liniștitoare, dar practicile nu vindecă și nu tratează boli, nu înlocuiesc diagnosticul, tratamentul sau supravegherea medicală și nu trebuie folosite pentru a amâna ori a întrerupe un tratament. Pentru simptome, mergi la medic. Aplicația descrie ce susțin practicanții și nu recomandă tratamente.</div>
+    </section>
+
+    <section id="p-istoric" data-panel="istoric" class="panel">
+      <p class="eyebrow">Origini paralele</p>
+      <h2 class="title">Istoric</h2>
+      <p>Ideea unui câmp energetic cu efecte asupra sănătății apare independent în mai multe culturi, cu vocabulare diferite dar structuri conceptuale înrudite. Câteva repere (după sursele uzuale; neverificate independent aici):</p>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="yr">tradiții vechi · China și India</div>
+          <p>Qigong terapeutic (bazat pe conceptul de <em>qi</em>) și practicile bazate pe <em>prana</em> din yoga și medicina ayurvedică formează rădăcinile conceptuale ale majorității sistemelor moderne de vindecare energetică.</p>
+        </div>
+        <div class="tl-item">
+          <div class="yr">1972 · Therapeutic Touch (SUA)</div>
+          <p>Dolores Krieger, profesoară de nursing la New York University, și Dora Kunz, cercetătoare din cercul Societății Teosofice, dezvoltă <strong>Therapeutic Touch</strong> — o metodă de „netezire” a câmpului energetic fără atingere fizică, predată ulterior în programe de nursing din SUA. Cercetările controlate nu au găsit dovezi de efecte dincolo de placebo, iar un experiment publicat în JAMA în 1998 nu a arătat că practicanții pot detecta un „câmp energetic” (<em>[de verificat sursa înainte de citare]</em>).</p>
+        </div>
+        <div class="tl-item">
+          <div class="yr">1987 · Pranic Healing (Filipine)</div>
+          <p><strong>Choa Kok Sui</strong>, inginer chimist și profesor spiritual filipinez, publică lucrarea fondatoare a sistemului „Pranic Healing”, sistematizând tehnici de „curățare” și „energizare” a presupusului câmp energetic într-o structură pe niveluri, cu certificare oferită de organizația proprie.</p>
+        </div>
+        <div class="tl-item">
+          <div class="yr">sec. XX · Bioenergoterapie în Europa</div>
+          <p>În paralel, termenul „bioenergoterapie” capătă circulație proprie în Europa Centrală și de Est, cu literatură proprie și practicanți, structurată mai puțin instituțional decât Pranic Healing (<em>[neverificat: detaliile nu au fost confirmate aici]</em>).</p>
+        </div>
+        <div class="tl-item">
+          <div class="yr">România · practică contemporană</div>
+          <p>În România există persoane care se prezintă public ca bioenergoterapeuți (presa a menționat, de exemplu, pe Lidia Fecioru; aplicația nu evaluează și nu recomandă pe nimeni). Spre deosebire de Pranic Healing, domeniul nu pare să aibă în România o școală unică, cu structură de grade recunoscută instituțional; practica ar fi organizată individual, în jurul unor cabinete și practicieni independenți (<em>[neverificat: statutul juridic al activității nu a fost verificat aici]</em>).</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="p-camp" data-panel="camp" class="panel">
+      <p class="eyebrow">Concepte fundamentale</p>
+      <h2 class="title">Câmpul energetic uman</h2>
+      <p>Majoritatea tradițiilor de bioenergoterapie descriu corpul ca fiind înconjurat de un câmp energetic stratificat — adesea numit „aură” — ale cărui straturi corespund unor dimensiuni diferite ale experienței umane:</p>
+      <ul class="layers">
+        <li><strong>Corpul eteric</strong> — stratul cel mai apropiat de corpul fizic, asociat vitalității de bază.</li>
+        <li><strong>Corpul emoțional</strong> — asociat stărilor afective și fluctuațiilor lor.</li>
+        <li><strong>Corpul mental</strong> — asociat gândirii, credințelor și tiparelor mentale.</li>
+        <li><strong>Chakrele</strong> — centre energetice de-a lungul axei corpului, considerate puncte de intrare/ieșire a energiei în și din câmp.</li>
+      </ul>
+      <p>În sistemul Pranic Healing, practicanții descriu trei operații de bază: <strong>scanare</strong> (perceperea zonelor presupus „dezechilibrate”), <strong>curățare</strong> (îndepărtarea energiei „consumate” sau stagnante) și <strong>energizare</strong> (introducerea de prană proaspătă). Această secvență — scanare, curățare, energizare — este structura pe care se construiesc toate nivelurile ulterioare.</p>
+
+      <div class="diagram-box">
+        <svg viewBox="0 0 200 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama axei chakrelor majore">
+          <line x1="100" y1="20" x2="100" y2="300" stroke="#1F4448" stroke-width="3"/>
+          <g font-family="Avenir Next, sans-serif" font-size="12" font-weight="700" fill="#062523" text-anchor="middle">
+            <circle cx="100" cy="30" r="13" fill="#B189D9"><animate attributeName="opacity" values=".55;1;.55" dur="3.2s" begin="0s" repeatCount="indefinite"/></circle>
+            <text x="100" y="34">7</text>
+            <circle cx="100" cy="75" r="13" fill="#8FA6DE"><animate attributeName="opacity" values=".55;1;.55" dur="3.2s" begin=".2s" repeatCount="indefinite"/></circle>
+            <text x="100" y="79">6</text>
+            <circle cx="100" cy="120" r="13" fill="#59D9C7"><animate attributeName="opacity" values=".55;1;.55" dur="3.2s" begin=".4s" repeatCount="indefinite"/></circle>
+            <text x="100" y="124">5</text>
+            <circle cx="100" cy="165" r="13" fill="#6ED98A"><animate attributeName="opacity" values=".55;1;.55" dur="3.2s" begin=".6s" repeatCount="indefinite"/></circle>
+            <text x="100" y="169">4</text>
+            <circle cx="100" cy="210" r="13" fill="#E8D96E"><animate attributeName="opacity" values=".55;1;.55" dur="3.2s" begin=".8s" repeatCount="indefinite"/></circle>
+            <text x="100" y="214">3</text>
+            <circle cx="100" cy="255" r="13" fill="#E8A25F"><animate attributeName="opacity" values=".55;1;.55" dur="3.2s" begin="1s" repeatCount="indefinite"/></circle>
+            <text x="100" y="259">2</text>
+            <circle cx="100" cy="292" r="13" fill="#D9736B"><animate attributeName="opacity" values=".55;1;.55" dur="3.2s" begin="1.2s" repeatCount="indefinite"/></circle>
+            <text x="100" y="296">1</text>
+          </g>
+        </svg>
+        <div class="diagram-legend">
+          <div><span class="n">1</span> Rădăcină</div>
+          <div><span class="n">2</span> Sacral</div>
+          <div><span class="n">3</span> Plex solar</div>
+          <div><span class="n">4</span> Inimă</div>
+          <div><span class="n">5</span> Gât</div>
+          <div><span class="n">6</span> Frunte (al treilea ochi)</div>
+          <div><span class="n">7</span> Creștet</div>
+        </div>
+      </div>
+      <p style="font-size:.86rem;margin-top:-8px">Cele șapte centre de mai sus formează axa de bază, comună majorității tradițiilor. Sistemul Pranic Healing extinde această bază la unsprezece centre majore, adăugând câteva puncte secundare de-a lungul aceleiași axe verticale.</p>
+    </section>
+
+    <section id="p-n1" data-panel="n1" class="panel">
+      <div class="grade-head">
+        <div class="grade-badge">1</div>
+        <div><p class="sub">Elementary Pranic Healing</p><h2 class="title">Bioenergie elementară</h2></div>
+      </div>
+      <p class="lede">Primul nivel introduce percepția presupusului câmp energetic și tehnicile de bază de „curățare” și „energizare”, exersate pe situații simple.</p>
+      <div class="focus-row">
+        <div class="focus-item"><div class="lbl">Focus</div><div class="val">Scanare, curățare, energizare</div></div>
+        <div class="focus-item"><div class="lbl">Aplicare</div><div class="val">Exerciții de bază (nu tratament medical)</div></div>
+        <div class="focus-item"><div class="lbl">Contact</div><div class="val">Fără atingere fizică</div></div>
+      </div>
+      <h3>Ce se învață</h3>
+      <p>Practicantul exersează percepția câmpului energetic prin senzații în palme (căldură, presiune, furnicătură) și învață secvența de bază: scanarea zonei afectate, „măturarea” energiei stagnante și proiectarea de energie proaspătă asupra zonei curățate. Cursurile de acest tip prezintă ca exemple de exersare situații cotidiene (oboseală, tensiune, disconfort ușor). Aplicația nu recomandă folosirea lor în locul consultului medical: durerile persistente, traumatismele (inclusiv entorsele) și orice simptom nou necesită medic.</p>
+      <p>Cea mai frecventă dificultate la acest nivel nu este tehnica în sine, ci încrederea în propria percepție: majoritatea începătorilor „simt” ceva de la primele exerciții, dar ezită să aibă încredere că senzația respectivă e relevantă. Practica repetată, mai degrabă decât analiza, e ceea ce construiește această încredere în timp.</p>
+      <div class="exercise">
+        <span class="ex-label">Exercițiu practic — scanarea de 5 minute</span>
+        <ol class="plain">
+          <li>Freacă ușor palmele una de alta timp de 15–20 de secunde, până simți căldură sau furnicătură.</li>
+          <li>Ține palmele la 10–15 cm deasupra propriului antebraț și plimbă-le încet de-a lungul lui.</li>
+          <li>Notează orice diferență de senzație între zone — puncte mai calde, mai reci, sau cu presiune ușor diferită.</li>
+          <li>Repetă pe cealaltă mână, apoi compară observațiile.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="p-n2" data-panel="n2" class="panel">
+      <div class="grade-head">
+        <div class="grade-badge">2</div>
+        <div><p class="sub">Intermediate Pranic Healing</p><h2 class="title">Bioenergie intermediară</h2></div>
+      </div>
+      <p class="lede">Al doilea nivel adaugă tehnici de „atragere” a pranei din surse externe (după practicanți) și lucrul cu cele unsprezece chakre majore ale sistemului.</p>
+      <div class="focus-row">
+        <div class="focus-item"><div class="lbl">Focus</div><div class="val">Chakre majore, auto-aplicare</div></div>
+        <div class="focus-item"><div class="lbl">Tehnică nouă</div><div class="val">Atragerea pranei din soare/aer</div></div>
+        <div class="focus-item"><div class="lbl">Aplicare</div><div class="val">Practică extinsă (nu tratament medical)</div></div>
+      </div>
+      <h3>Ce se învață</h3>
+      <p>Practicantul învață să „atragă” prana din surse externe — solară, a aerului, a pământului — pentru a energiza mai eficient câmpul vizat, precum și localizarea și funcția celor unsprezece chakre majore recunoscute de sistem (vezi diagrama axei energetice din secțiunea „Câmpul energetic”). Nivelul introduce, de asemenea, protocoale de auto-aplicare. În sistemul de origine aplicarea se extinde și la situații cronice sau complexe; pentru orice afecțiune cronică sau complexă, singura cale responsabilă este tratamentul medical.</p>
+      <p>„Atragerea” pranei nu înseamnă epuizarea sursei — spre deosebire de proiectarea propriei energii (mai obositoare pentru practician), folosirea unei surse externe abundente (aerul, lumina solară) e considerată de practicanți mai puțin obositoare, motiv pentru care nivelul intermediar insistă pe această distincție.</p>
+      <div class="exercise">
+        <span class="ex-label">Exercițiu practic — respirația de atragere a pranei</span>
+        <ol class="plain">
+          <li>Stai într-un loc luminos sau aerisit, cu spatele drept.</li>
+          <li>Inspiră lent, vizualizând energie luminoasă intrând prin creștet și prin palme.</li>
+          <li>Ține respirația 2–3 secunde, apoi expiră lent, vizualizând energia distribuindu-se prin tot corpul.</li>
+          <li>Repetă de 7–10 ori; notează starea generală înainte și după exercițiu.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="p-n3" data-panel="n3" class="panel">
+      <div class="grade-head">
+        <div class="grade-badge">3</div>
+        <div><p class="sub">Absent / Distant Healing</p><h2 class="title">Lucrul la distanță</h2></div>
+      </div>
+      <p class="lede">Al treilea nivel extinde practica dincolo de prezența fizică, pe premisa — fără dovezi științifice — că energia nu este limitată de distanța spațială.</p>
+      <div class="focus-row">
+        <div class="focus-item"><div class="lbl">Focus</div><div class="val">Practică fără prezență fizică (fără dovezi de efect)</div></div>
+        <div class="focus-item"><div class="lbl">Bază conceptuală</div><div class="val">Vizualizare, conectare energetică</div></div>
+      </div>
+      <h3>Ce se învață</h3>
+      <p>Folosind tehnici de vizualizare și „conectare” energetică cu o persoană sau un loc absent, practicantul aplică aceeași secvență de scanare-curățare-energizare la distanță. Conceptul apare în mai multe tradiții energetice (inclusiv Reiki, la Gradul II) și se bazează pe premisa, nedemonstrată, că percepția și proiecția energetică nu sunt limitate de distanța fizică. Nu există dovezi că așa ceva influențează sănătatea cuiva.</p>
+      <p>Etica practicii la distanță e discutată explicit la acest nivel: majoritatea școlilor insistă pe obținerea consimțământului persoanei vizate, chiar dacă practica are loc fără prezență fizică — atât din respect pentru autonomia persoanei, cât și pentru că un gest „nesolicitat” ar fi, după unele relatări ale practicanților, mai puțin eficient.</p>
+      <div class="exercise">
+        <span class="ex-label">Exercițiu practic — conectarea la distanță</span>
+        <p>Cu acordul unei persoane apropiate, alege un moment fixat dinainte (de exemplu, ora 20:00). Timp de 5 minute, așează-te confortabil, respiră calm și vizualizează persoana respectivă într-o stare de bine, „trimițând” mental energie caldă, luminoasă, către ea. Notează, fără să discutați detalii înainte, ce a simțit fiecare — exercițiul e util mai ales ca disciplină de concentrare, nu ca „test” de acuratețe.</p>
+      </div>
+    </section>
+
+    <section id="p-n4" data-panel="n4" class="panel">
+      <div class="grade-head">
+        <div class="grade-badge">4</div>
+        <div><p class="sub">Advanced Pranic Healing</p><h2 class="title">Bioenergie avansată</h2></div>
+      </div>
+      <p class="lede">Nivelul avansat introduce lucrul cu „prana colorată” — asocierea unor culori cu intenții simbolice diferite.</p>
+      <div class="focus-row">
+        <div class="focus-item"><div class="lbl">Focus</div><div class="val">Prana colorată (vizualizare)</div></div>
+        <div class="focus-item"><div class="lbl">Cerință</div><div class="val">Niveluri 1–3 parcurse</div></div>
+      </div>
+      <h3>Ce se învață</h3>
+      <p>Practicantul învață să asocieze culori diferite ale „energiei” cu intenții simbolice — de exemplu, una pentru calm, alta pentru vitalitate. Sistemul de origine le atribuie efecte terapeutice; această aplicație le prezintă doar ca exerciții de vizualizare, fără dovezi de efect asupra bolilor.</p>
+      <p>Lucrul cu prana colorată cere mai multă precizie decât nivelurile anterioare: practicanții avansați insistă pe supraveghere directă din partea unui instructor, mai mult decât la nivelurile 1–3.</p>
+      <div class="exercise">
+        <span class="ex-label">Exercițiu practic — asocierea culoare-intenție</span>
+        <ul class="plain">
+          <li><strong>Verde</strong> — vizualizat pentru calm și relaxare.</li>
+          <li><strong>Albastru deschis</strong> — vizualizat pentru liniștire.</li>
+          <li><strong>Portocaliu</strong> — vizualizat pentru stimularea vitalității și a energiei generale.</li>
+        </ul>
+        <p>Pentru fiecare culoare, petrece 2 minute vizualizând-o pătrunzând în propriile palme, apoi notează dacă asociezi vreo senzație corporală distinctă fiecărei culori.</p>
+      </div>
+    </section>
+
+    <section id="p-n5" data-panel="n5" class="panel">
+      <div class="grade-head">
+        <div class="grade-badge">5</div>
+        <div><p class="sub">Ramuri specializate</p><h2 class="title">Psihoterapie și cristale energetice</h2></div>
+      </div>
+      <p class="lede">Dincolo de nivelurile fizice, sistemul se ramifică în direcții specializate care abordează dimensiunea emoțională/mentală și folosesc suporturi materiale suplimentare.</p>
+      <div class="card">
+        <h4>Pranic Psychotherapy</h4>
+        <p>Aplică principiile bioenergetice asupra corpului emoțional și mental — lucrul cu tipare de gândire, emoții blocate și obiceiuri, prin „curățarea” și „rebalansarea” presupuselor straturi subtile ale câmpului. Nu este psihoterapie în sens clinic și nu înlocuiește consultul psihologic sau psihiatric.</p>
+      </div>
+      <div class="card">
+        <h4>Pranic Crystal Healing</h4>
+        <p>Folosește cristale ca „amplificatoare” și „stocatoare” de energie, integrate în protocoalele de scanare-curățare-energizare pentru a intensifica sau prelungi, după practicanți, efectul sesiunii (fără dovezi științifice).</p>
+      </div>
+      <div class="card">
+        <h4>Nivel spiritual avansat</h4>
+        <p>Deasupra nivelurilor „terapeutice”, unele școli documentează o treaptă spirituală avansată, orientată spre dezvoltare personală și meditație profundă, mai degrabă decât spre tratament — tratată de sistemul de origine ca etapă separată de „măiestrie” personală, nu ca tehnică de vindecare.</p>
+      </div>
+      <div class="exercise">
+        <span class="ex-label">Exercițiu de reflecție — alegerea unei direcții</span>
+        <p>Dintre cele trei ramuri de mai sus, care te atrage cel mai mult și de ce? Notează un răspuns scurt — reflecția asupra propriei atracții spre latura emoțională (psihoterapie), materială (cristale) sau spirituală (dezvoltare personală) e adesea la fel de informativă ca parcurgerea propriu-zisă a ramurii, mai ales în etapa de orientare a practicii.</p>
+      </div>
+    </section>
+
+    <section id="p-aplicatii" data-panel="aplicatii" class="panel">
+      <p class="eyebrow">În practică</p>
+      <h2 class="title">Aplicații practice</h2>
+      <h3>Secvența de bază</h3>
+      <ol class="plain">
+        <li><strong>Centrare</strong> — câteva respirații conștiente înainte de a începe, pentru stabilizarea propriului câmp.</li>
+        <li><strong>Scanare</strong> — plimbarea palmelor la câțiva centimetri de corp, atenția pe senzații (căldură, presiune, rece, furnicătură) care semnalează dezechilibre.</li>
+        <li><strong>Curățare</strong> — mișcări de „măturare” dinspre zona afectată spre exterior, cu intenția de a îndepărta energia stagnantă.</li>
+        <li><strong>Energizare</strong> — proiectarea de energie proaspătă asupra zonei curățate, de obicei prin palme întinse spre zonă.</li>
+        <li><strong>Stabilizare</strong> — o pauză finală, pentru a „ancora” efectul sesiunii.</li>
+      </ol>
+      <h3>Auto-protecție energetică</h3>
+      <p>Majoritatea școlilor insistă pe protocoale de igienă energetică pentru practician: spălarea mâinilor înainte și după sesiune, vizualizarea unui „scut” protector și evitarea sesiunilor în stări de oboseală extremă, pentru a nu prelua energia stagnantă a persoanei asistate (concept fără bază științifică; spălarea mâinilor este, în schimb, o măsură reală de igienă).</p>
+      <div class="note">Nu folosi aceste exerciții pentru a evalua sau a trata simptome ale tale sau ale altora. Orice durere, febră, rană, simptom persistent sau tulburare psihică necesită consult medical.</div>
+      <h3>Jurnal de practică</h3>
+      <p>Notarea senzațiilor percepute la fiecare sesiune — atât ca practician, cât și ca beneficiar — ajută la rafinarea sensibilității energetice în timp, similar recomandărilor din Reiki și radiestezie. Vezi secțiunea „Jurnal” pentru un spațiu dedicat acestor notițe.</p>
+    </section>
+
+    <section id="p-comparativ" data-panel="comparativ" class="panel">
+      <p class="eyebrow">Anexă comparativă</p>
+      <h2 class="title">Școli și tradiții internaționale</h2>
+      <p>Spre deosebire de sistemele cu o singură linie de transmisie, bioenergoterapia cuprinde mai multe tradiții paralele, cu grade diferite de formalizare.</p>
+      <table class="compare">
+        <thead><tr><th>Tradiție</th><th>Origine</th><th>Trăsătură distinctivă</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Pranic Healing</strong></td><td>Filipine — Choa Kok Sui, 1987</td><td>Cel mai formalizat sistem: niveluri clare, certificare proprie, rețea de instructori</td></tr>
+          <tr><td><strong>Therapeutic Touch</strong></td><td>SUA — Krieger &amp; Kunz, 1972</td><td>Dezvoltat în context de nursing; accent pe „netezirea” câmpului fără atingere; fără dovezi de eficacitate</td></tr>
+          <tr><td><strong>Qigong terapeutic</strong></td><td>China, tradiție multiseculară</td><td>Integrează mișcare, respirație și meditație; rădăcina conceptuală a multor sisteme moderne</td></tr>
+          <tr><td><strong>Bioenergoterapie central-europeană</strong></td><td>Europa Centrală și de Est, sec. XX</td><td>Literatură proprie; mai puțin instituționalizată (<em>[neverificat]</em>)</td></tr>
+          <tr><td><strong>Practică în România</strong></td><td>Practicieni independenți contemporani</td><td>Cabinete individuale; fără școală unică sau corp de certificare recunoscut instituțional (<em>[neverificat]</em>)</td></tr>
+        </tbody>
+      </table>
+      <div class="note">Structura pe cinci niveluri prezentată în această aplicație urmează sistemul Pranic Healing, cel mai formalizat — util ca schelet pedagogic, dar nu singura organizare posibilă a domeniului.</div>
+    </section>
+
+    <section id="p-glosar" data-panel="glosar" class="panel">
+      <p class="eyebrow">Referință</p>
+      <h2 class="title">Glosar</h2>
+      <dl class="glossary">
+        <div><dt>Prana</dt><dd>Termen sanscrit pentru energia vitală; echivalent conceptual al ki-ului japonez sau qi-ului chinezesc.</dd></div>
+        <div><dt>Aură</dt><dd>Presupusul câmp energetic ce înconjoară corpul fizic, descris de tradiții spirituale ca stratificat; nu a fost evidențiat de măsurători științifice.</dd></div>
+        <div><dt>Chakră</dt><dd>Centru energetic din tradiții spirituale, plasat de-a lungul axei corpului; nu corespunde unor structuri anatomice demonstrate.</dd></div>
+        <div><dt>Scanare</dt><dd>Tehnica de percepere a câmpului energetic pentru identificarea zonelor de dezechilibru.</dd></div>
+        <div><dt>Curățare</dt><dd>Îndepărtarea energiei stagnante sau „consumate” dintr-o zonă a câmpului energetic.</dd></div>
+        <div><dt>Energizare</dt><dd>Proiectarea de energie proaspătă asupra unei zone curățate.</dd></div>
+        <div><dt>Prană colorată</dt><dd>Tehnică avansată care asociază culori specifice unor intenții diferite (după practicanți, cu efecte terapeutice nedemonstrate).</dd></div>
+        <div><dt>Corp eteric</dt><dd>Stratul câmpului energetic cel mai apropiat de corpul fizic, asociat vitalității de bază.</dd></div>
+        <div><dt>Lucrul la distanță</dt><dd>Practica de a „trimite” energie, prin vizualizare, către o persoană sau un loc absent fizic; fără dovezi de efect.</dd></div>
+        <div><dt>Bioenergoterapeut</dt><dd>Termenul folosit în spațiul românesc pentru practicantul acestui tip de practică energetică; nu desemnează o profesie medicală.</dd></div>
+        <div><dt>Igienă energetică</dt><dd>Protocoale de protecție a practicianului împotriva preluării energiei stagnante a persoanei vizate.</dd></div>
+        <div><dt>Therapeutic Touch</dt><dd>Sistem occidental dezvoltat în context de nursing, bazat pe „netezirea” câmpului energetic fără atingere fizică.</dd></div>
+      </dl>
+    </section>
+
+    <section id="p-jurnal" data-panel="jurnal" class="panel">
+      <p class="eyebrow">Notițe personale</p>
+      <h2 class="title">Jurnal de practică</h2>
+      <p>Notează observații după fiecare sesiune de scanare, curățare sau energizare — ce ai simțit, cât a durat, ce nivel ai exersat. Notițele există doar în această sesiune a browserului: descarcă-le înainte de a închide pagina, altfel se pierd la reîncărcare — aplicația nu folosește stocare persistentă.</p>
+      <textarea id="journalText" class="journal-area" aria-label="Jurnal de practică" rows="14" placeholder="Ex: Exercițiu de scanare, 5 min — am simțit o zonă mai rece la nivelul umărului stâng…"></textarea>
+      <div class="journal-btns">
+        <button type="button" class="btn" id="journalDownload">Descarcă (.txt)</button>
+        <button type="button" class="btn btn-ghost" id="journalClear">Golește</button>
+      </div>
+    </section>
+
+    <section id="p-quiz" data-panel="quiz" class="panel">
+      <p class="eyebrow">Verifică-ți cunoștințele</p>
+      <h2 class="title">Autoevaluare</h2>
+      <p>Zece întrebări despre istoricul, structura și conceptele bioenergoterapiei (și despre ce spun dovezile). Ordinea răspunsurilor se amestecă la fiecare încercare.</p>
+      <div id="quizRoot"></div>
+      <div id="quizScore" role="status" aria-live="polite"></div>
+      <button type="button" class="btn" id="quizReset">Reia testul</button>
+    </section>
+
+    <footer class="appfoot">Aplicație offline, fără dependențe externe · conținut cu scop educativ; bioenergoterapia nu are dovezi științifice de vindecare și nu înlocuiește medicul · parte din portofoliul de aplicații single-file HTML</footer>
+  </main>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var BASE_TITLE = "Bioenergoterapie — curs interactiv";
+  var $ = function(id){ return document.getElementById(id); };
+  var links = [].slice.call(document.querySelectorAll(".navlist a"));
+  var panels = [].slice.call(document.querySelectorAll(".panel"));
+  var ids = panels.map(function(p){ return p.getAttribute("data-panel"); });
+  var sidebar = $("sidebar"), toggle = $("navToggle"), live = $("liveStatus");
+  var searchInput = $("searchInput"), searchResults = $("searchResults");
+
+  function say(msg){
+    if(!live) return;
+    live.textContent = "";
+    setTimeout(function(){ live.textContent = msg; }, 40);
+  }
+
+  /* ---- navigare + deep link (#id) ---- */
+  function setNav(open){
+    sidebar.classList.toggle("open", open);
+    if(toggle){
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      toggle.setAttribute("aria-label", open ? "Închide meniul" : "Deschide meniul");
+    }
+  }
+  function activate(target, focusHeading){
+    if(ids.indexOf(target) < 0) target = "intro";
+    panels.forEach(function(p){ p.classList.toggle("active", p.getAttribute("data-panel") === target); });
+    links.forEach(function(l){
+      var on = l.getAttribute("data-target") === target;
+      l.classList.toggle("active", on);
+      if(on) l.setAttribute("aria-current", "page"); else l.removeAttribute("aria-current");
+    });
+    var h = $("p-" + target).querySelector("h2.title");
+    document.title = (target === "intro" || !h) ? BASE_TITLE : (h.textContent + " · " + BASE_TITLE);
+    window.scrollTo({top:0,left:0,behavior:"instant"});
+    setNav(false);
+    if(searchResults) searchResults.classList.remove("show");
+    if(focusHeading && h){ h.setAttribute("tabindex", "-1"); h.focus({preventScroll:true}); }
+  }
+  function fromHash(){
+    var t = "";
+    try{ t = decodeURIComponent((location.hash || "").slice(1)); }catch(e){ t = ""; }
+    return ids.indexOf(t) >= 0 ? t : "intro";
+  }
+  links.forEach(function(l){
+    l.addEventListener("click", function(e){
+      e.preventDefault();
+      var t = l.getAttribute("data-target");
+      if(location.hash === "#" + t){ activate(t, true); }
+      else { try{ location.hash = t; }catch(err){ activate(t, true); } }
+    });
+  });
+  window.addEventListener("hashchange", function(){ activate(fromHash(), true); });
+  if(toggle){
+    toggle.addEventListener("click", function(){ setNav(!sidebar.classList.contains("open")); });
+  }
+  document.addEventListener("keydown", function(e){
+    if(e.key === "Escape"){
+      if(sidebar.classList.contains("open")){ setNav(false); if(toggle) toggle.focus(); }
+      if(searchResults) searchResults.classList.remove("show");
+    }
+  });
+
+  /* ---- înălțimea bannerului (toolbar lipit sub el) ---- */
+  var dis = $("disclaimer");
+  function measure(){
+    if(dis) document.documentElement.style.setProperty("--dh", (dis.offsetHeight + 10) + "px");
+  }
+  measure();
+  window.addEventListener("resize", measure);
+
+  /* ---- căutare (fără diacritice) ---- */
+  function normalize(s){
+    return s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
+  }
+  var panelText = panels.map(function(p){ return normalize(p.textContent); });
+  function doSearch(){
+    var q = normalize(searchInput.value.trim());
+    searchResults.textContent = "";
+    if(q.length < 2){ searchResults.classList.remove("show"); return; }
+    var matches = [];
+    panels.forEach(function(p, i){
+      if(panelText[i].indexOf(q) !== -1){
+        var t = p.querySelector("h2.title");
+        matches.push({id:p.getAttribute("data-panel"), title: t ? t.textContent : p.id});
+      }
+    });
+    if(!matches.length){
+      var empty = document.createElement("div");
+      empty.className = "sr-empty";
+      empty.textContent = "Niciun rezultat";
+      searchResults.appendChild(empty);
+    } else {
+      matches.slice(0, 8).forEach(function(m){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "sr-item";
+        b.textContent = m.title;
+        b.addEventListener("click", function(){
+          searchInput.value = "";
+          try{ location.hash = m.id; }catch(err){ activate(m.id, true); }
+          if(location.hash === "#" + m.id) activate(m.id, true);
+        });
+        searchResults.appendChild(b);
+      });
+    }
+    searchResults.classList.add("show");
+  }
+  if(searchInput){
+    searchInput.addEventListener("input", doSearch);
+    searchInput.addEventListener("keydown", function(e){
+      if(e.key === "Enter"){
+        var first = searchResults.querySelector(".sr-item");
+        if(first){ e.preventDefault(); first.click(); }
+      } else if(e.key === "ArrowDown"){
+        var f = searchResults.querySelector(".sr-item");
+        if(f){ e.preventDefault(); f.focus(); }
+      }
+    });
+    searchResults.addEventListener("keydown", function(e){
+      var items = [].slice.call(searchResults.querySelectorAll(".sr-item"));
+      var i = items.indexOf(document.activeElement);
+      if(e.key === "ArrowDown" && i < items.length - 1){ e.preventDefault(); items[i+1].focus(); }
+      else if(e.key === "ArrowUp"){ e.preventDefault(); (i > 0 ? items[i-1] : searchInput).focus(); }
+    });
+    document.addEventListener("click", function(e){
+      if(e.target !== searchInput && !searchResults.contains(e.target)){
+        searchResults.classList.remove("show");
+      }
+    });
+  }
+
+  /* ---- print / share / ecran complet / ecran activ ---- */
+  var btnPrint = $("btnPrint");
+  if(btnPrint){ btnPrint.addEventListener("click", function(){ window.print(); }); }
+
+  var btnShare = $("btnShare");
+  if(btnShare){
+    btnShare.addEventListener("click", function(){
+      var url = location.href;
+      var descEl = document.querySelector('meta[name="description"]');
+      var text = descEl ? descEl.getAttribute("content") : BASE_TITLE;
+      function done(){
+        var old = btnShare.textContent;
+        btnShare.textContent = "✓";
+        say("Linkul a fost copiat.");
+        setTimeout(function(){ btnShare.textContent = old; }, 1400);
+      }
+      if(navigator.share){
+        navigator.share({title: BASE_TITLE, text: text, url: url}).catch(function(){});
+      } else if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(url).then(done).catch(function(){ window.prompt("Copiază linkul:", url); });
+      } else {
+        window.prompt("Copiază linkul:", url);
+      }
+    });
+  }
+
+  var btnFs = $("btnFullscreen");
+  function paintFs(){
+    var on = !!document.fullscreenElement;
+    btnFs.classList.toggle("active", on);
+    btnFs.setAttribute("aria-pressed", on ? "true" : "false");
+  }
+  if(btnFs){
+    if(!document.documentElement.requestFullscreen){
+      btnFs.disabled = true;
+      btnFs.title = "Ecran complet indisponibil în acest browser";
+    } else {
+      btnFs.setAttribute("aria-pressed", "false");
+      btnFs.addEventListener("click", function(){
+        if(!document.fullscreenElement){
+          document.documentElement.requestFullscreen().catch(function(){});
+        } else if(document.exitFullscreen){
+          document.exitFullscreen();
+        }
+      });
+      document.addEventListener("fullscreenchange", paintFs);
+    }
+  }
+
+  var wakeLock = null, wakeWanted = false;
+  var btnWake = $("btnWakeLock");
+  function paintWake(){
+    btnWake.classList.toggle("active", wakeWanted);
+    btnWake.setAttribute("aria-pressed", wakeWanted ? "true" : "false");
+  }
+  function acquireWake(){
+    return navigator.wakeLock.request("screen").then(function(lock){
+      wakeLock = lock;
+      lock.addEventListener("release", function(){ if(wakeLock === lock) wakeLock = null; });
+    }).catch(function(){
+      wakeWanted = false; paintWake();
+      say("Nu s-a putut menține ecranul activ.");
+    });
+  }
+  if(btnWake){
+    if(!("wakeLock" in navigator)){
+      btnWake.disabled = true;
+      btnWake.title = "Indisponibil în acest browser";
+    } else {
+      btnWake.setAttribute("aria-pressed", "false");
+      btnWake.addEventListener("click", function(){
+        if(!wakeWanted){
+          wakeWanted = true; paintWake();
+          acquireWake();
+        } else {
+          wakeWanted = false; paintWake();
+          if(wakeLock){ wakeLock.release().catch(function(){}); wakeLock = null; }
+        }
+      });
+      document.addEventListener("visibilitychange", function(){
+        if(document.visibilityState === "visible" && wakeWanted && !wakeLock){ acquireWake(); }
+      });
+    }
+  }
+
+  /* ---- animații SVG: respectă prefers-reduced-motion ---- */
+  var mq = window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)") : null;
+  function motion(){
+    [].slice.call(document.querySelectorAll("svg")).forEach(function(s){
+      try{ if(mq && mq.matches) s.pauseAnimations(); else s.unpauseAnimations(); }catch(e){}
+    });
+  }
+  motion();
+  if(mq){ if(mq.addEventListener) mq.addEventListener("change", motion); else if(mq.addListener) mq.addListener(motion); }
+
+  /* ---- jurnal (doar în memorie; descărcare ca .txt) ---- */
+  var journalText = $("journalText");
+  var journalDownload = $("journalDownload");
+  var journalClear = $("journalClear");
+  if(journalDownload){
+    journalDownload.addEventListener("click", function(){
+      if(!journalText.value.trim()){ say("Jurnalul este gol."); return; }
+      try{
+        var blob = new Blob([journalText.value], {type:"text/plain;charset=utf-8"});
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement("a");
+        a.href = url;
+        a.download = "jurnal-bioenergoterapie.txt";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        setTimeout(function(){ URL.revokeObjectURL(url); }, 1000);
+      }catch(e){ say("Descărcarea nu a reușit în acest browser."); }
+    });
+  }
+  if(journalClear){
+    journalClear.addEventListener("click", function(){
+      if(!journalText.value) return;
+      if(confirm("Golești tot jurnalul? Această acțiune nu poate fi anulată.")){
+        journalText.value = "";
+      }
+    });
+  }
+  window.addEventListener("beforeunload", function(e){
+    if(journalText && journalText.value.trim()){ e.preventDefault(); e.returnValue = ""; }
+  });
+
+  /* ---- autoevaluare ---- */
+  var QUESTIONS = [
+    {q:"Cine a dezvoltat sistemul Pranic Healing?", opts:["Dolores Krieger","Choa Kok Sui","Dora Kunz","Mikao Usui"], correct:1, explain:"Choa Kok Sui a publicat lucrarea fondatoare a Pranic Healing în 1987, în Filipine."},
+    {q:"Ce sistem a fost dezvoltat de Dolores Krieger și Dora Kunz în 1972?", opts:["Pranic Healing","Reiki","Therapeutic Touch","Qigong terapeutic"], correct:2, explain:"Therapeutic Touch a fost dezvoltat în context de nursing, la New York University."},
+    {q:"Care este secvența de bază a procedurii în sistemul Pranic Healing?", opts:["Scanare, curățare, energizare","Curățare, scanare, meditație","Energizare, respirație, atingere","Vizualizare, curățare, proiecție"], correct:0, explain:"Scanare, curățare, energizare — structura de bază pe care se construiesc nivelurile sistemului."},
+    {q:"Câte chakre majore sunt lucrate la nivelul intermediar?", opts:["Șapte","Nouă","Unsprezece","Treisprezece"], correct:2, explain:"Sistemul Pranic Healing recunoaște unsprezece chakre majore la nivelul intermediar, extinzând baza de șapte."},
+    {q:"Ce introduce nivelul avansat (Advanced Pranic Healing)?", opts:["Lucrul la distanță","Prana colorată","Scanarea de bază","Psihoterapia pranică"], correct:1, explain:"Nivelul avansat lucrează cu prana colorată, asociind culori diferite unor intenții simbolice."},
+    {q:"Ce spun, în prezent, cercetările controlate despre practicile bazate pe un „câmp energetic” (de exemplu Therapeutic Touch)?", opts:["Au demonstrat că vindecă boli grave","Nu au găsit dovezi convingătoare de efect dincolo de placebo și relaxare","Au demonstrat că pot înlocui medicația","Au dovedit că funcționează doar la distanță"], correct:1, explain:"Câmpul energetic nu a fost demonstrat, iar studiile nu arată eficacitate peste placebo. Aceste practici nu înlocuiesc îngrijirea medicală."},
+    {q:"Care este stratul câmpului energetic cel mai apropiat de corpul fizic, în descrierea tradițională?", opts:["Corpul mental","Corpul emoțional","Corpul eteric","Corpul cauzal"], correct:2, explain:"Corpul eteric este descris ca stratul cel mai apropiat de corpul fizic, asociat vitalității de bază (concept spiritual, nu anatomic)."},
+    {q:"Ce ramură abordează corpul emoțional și mental prin tehnici bioenergetice?", opts:["Pranic Crystal Healing","Pranic Psychotherapy","Advanced Pranic Healing","Therapeutic Touch"], correct:1, explain:"Pranic Psychotherapy aplică principiile bioenergetice asupra tiparelor emoționale și mentale; nu este psihoterapie clinică."},
+    {q:"Ce tradiție este adesea indicată drept rădăcina conceptuală a multor sisteme moderne de „vindecare energetică”?", opts:["Qigong terapeutic","Pranic Crystal Healing","Therapeutic Touch","Arhatic Yoga"], correct:0, explain:"Qigong-ul chinezesc, cu tradiție multiseculară, este adesea indicat drept bază conceptuală a multor sisteme moderne."},
+    {q:"Ce ar trebui să faci dacă ai un simptom medical persistent?", opts:["Să folosești doar exerciții bioenergetice","Să consulți un medic și să urmezi tratamentul recomandat","Să aștepți să treacă fără consult","Să întrerupi tratamentul în curs"], correct:1, explain:"Bioenergoterapia nu are dovezi de vindecare și nu înlocuiește consultul sau tratamentul medical."}
+  ];
+
+  var root = $("quizRoot");
+  var scoreBox = $("quizScore");
+  var answered = {};
+  var view = [];
+
+  function shuffle(a){ // Fisher–Yates
+    for(var i = a.length - 1; i > 0; i--){
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = a[i]; a[i] = a[j]; a[j] = t;
+    }
+    return a;
+  }
+
+  function renderQuiz(){
+    answered = {};
+    view = [];
+    scoreBox.classList.remove("show");
+    scoreBox.textContent = "";
+    root.textContent = "";
+    QUESTIONS.forEach(function(item, qi){
+      var opts = shuffle(item.opts.map(function(t, i){ return {t:t, ok:i === item.correct}; }));
+      view.push(opts);
+      var qDiv = document.createElement("div");
+      qDiv.className = "q";
+      qDiv.setAttribute("role", "group");
+      qDiv.setAttribute("aria-labelledby", "qt" + qi);
+      var qp = document.createElement("p");
+      qp.className = "qtext";
+      qp.id = "qt" + qi;
+      qp.textContent = (qi+1) + ". " + item.q;
+      qDiv.appendChild(qp);
+      var optsDiv = document.createElement("div");
+      optsDiv.className = "opts";
+      opts.forEach(function(opt, oi){
+        var label = document.createElement("label");
+        var input = document.createElement("input");
+        input.type = "radio";
+        input.name = "q" + qi;
+        input.value = oi;
+        label.appendChild(input);
+        var span = document.createElement("span");
+        span.textContent = opt.t;
+        label.appendChild(span);
+        input.addEventListener("change", function(){ handleAnswer(qi, oi, qDiv); });
+        optsDiv.appendChild(label);
+      });
+      qDiv.appendChild(optsDiv);
+      var ex = document.createElement("p");
+      ex.className = "qz-explain";
+      ex.setAttribute("aria-live", "polite");
+      qDiv.appendChild(ex);
+      root.appendChild(qDiv);
+    });
+  }
+
+  function handleAnswer(qi, oi, qDiv){
+    if(answered[qi] !== undefined) return;
+    answered[qi] = oi;
+    var isCorrect = view[qi][oi].ok;
+    try{ if(navigator.vibrate){ navigator.vibrate(isCorrect ? 30 : [20,40,20]); } }catch(e){}
+    qDiv.querySelectorAll("label").forEach(function(l, li){
+      l.querySelector("input").disabled = true;
+      if(view[qi][li].ok) l.classList.add("correct");
+      else if(li === oi) l.classList.add("wrong");
+    });
+    var ex = qDiv.querySelector(".qz-explain");
+    ex.textContent = "";
+    var st = document.createElement("strong");
+    st.textContent = isCorrect ? "Corect. " : "Greșit. ";
+    ex.appendChild(st);
+    ex.appendChild(document.createTextNode(QUESTIONS[qi].explain));
+    ex.classList.add("show");
+    if(Object.keys(answered).length === QUESTIONS.length) showScore();
+  }
+
+  function showScore(){
+    var correct = 0;
+    Object.keys(answered).forEach(function(qi){
+      if(view[qi][answered[qi]].ok) correct++;
+    });
+    scoreBox.textContent = "Scor: " + correct + " din " + QUESTIONS.length + " răspunsuri corecte.";
+    scoreBox.classList.add("show");
+  }
+
+  $("quizReset").addEventListener("click", function(){ renderQuiz(); });
+  renderQuiz();
+
+  /* ---- pornire: respectă #hash ---- */
+  setNav(false);
+  activate(fromHash(), false);
+  // evită saltul de ancoră al browserului la deschiderea unui #deep-link
+  window.addEventListener("load", function(){ if(location.hash) window.scrollTo({top:0,left:0,behavior:"instant"}); });
+})();
+</script>
+</body>
+</html>
