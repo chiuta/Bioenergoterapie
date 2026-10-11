@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-Edr5Zqv6SCV9vDvBlshxYJdqHHRTztRPQ4LqphtjaA8='; style-src 'unsafe-inline'; img-src data:; base-uri 'none'; form-action 'none'">
 <meta name="theme-color" content="#0B2426">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Bioenergoterapie — curs interactiv">
@@ -199,6 +199,7 @@
   .qz-explain.show{display:block}
   #quizScore{font-family:var(--disp);font-size:1.3rem;margin:20px 0;padding:18px 22px;background:var(--accent-deep);color:#062523;border-radius:var(--radius-m);display:none;font-weight:700}
   #quizScore.show{display:block}
+  .quiz-review{margin:-6px 0 18px}.quiz-review a{color:var(--accent)}
   .btn{background:var(--accent-deep);color:#062523;border:none;padding:11px 22px;border-radius:var(--radius-s);font-size:.95rem;cursor:pointer;font-family:var(--sans);font-weight:700}
   .btn:hover{background:var(--accent)}
 
@@ -597,10 +598,13 @@
     <section id="p-jurnal" data-panel="jurnal" class="panel">
       <p class="eyebrow">Notițe personale</p>
       <h2 class="title">Jurnal de practică</h2>
-      <p>Notează observații după fiecare sesiune de scanare, curățare sau energizare — ce ai simțit, cât a durat, ce nivel ai exersat. Notițele există doar în această sesiune a browserului: descarcă-le înainte de a închide pagina, altfel se pierd la reîncărcare — aplicația nu folosește stocare persistentă.</p>
+      <p>Notează observații după fiecare sesiune de scanare, curățare sau energizare — ce ai simțit, cât a durat, ce nivel ai exersat. Notițele există doar în această sesiune a browserului: descarcă-le înainte de a închide pagina, altfel se pierd la reîncărcare — aplicația nu folosește stocare persistentă. Un jurnal descărcat anterior se poate reîncărca cu „Încarcă (.txt)”.</p>
       <textarea id="journalText" class="journal-area" aria-label="Jurnal de practică" rows="14" placeholder="Ex: Exercițiu de scanare, 5 min — am simțit o zonă mai rece la nivelul umărului stâng…"></textarea>
       <div class="journal-btns">
         <button type="button" class="btn" id="journalDownload">Descarcă (.txt)</button>
+        <button type="button" class="btn btn-ghost" id="journalLoad">Încarcă (.txt)</button>
+        <button type="button" class="btn btn-ghost" id="journalStamp">Inserează data și ora</button>
+        <input type="file" id="journalFile" accept=".txt,text/plain" hidden aria-label="Alege un jurnal salvat anterior (.txt)">
         <button type="button" class="btn btn-ghost" id="journalClear">Golește</button>
       </div>
     </section>
@@ -611,6 +615,7 @@
       <p>Zece întrebări despre istoricul, structura și conceptele bioenergoterapiei (și despre ce spun dovezile). Ordinea răspunsurilor se amestecă la fiecare încercare.</p>
       <div id="quizRoot"></div>
       <div id="quizScore" role="status" aria-live="polite"></div>
+      <p id="quizReview" class="quiz-review" hidden></p>
       <button type="button" class="btn" id="quizReset">Reia testul</button>
     </section>
 
@@ -846,7 +851,7 @@
   motion();
   if(mq){ if(mq.addEventListener) mq.addEventListener("change", motion); else if(mq.addListener) mq.addListener(motion); }
 
-  /* ---- jurnal (doar în memorie; descărcare ca .txt) ---- */
+  /* ---- jurnal (doar în memorie; descărcare și reîncărcare ca .txt) ---- */
   var journalText = $("journalText");
   var journalDownload = $("journalDownload");
   var journalClear = $("journalClear");
@@ -866,6 +871,38 @@
       }catch(e){ say("Descărcarea nu a reușit în acest browser."); }
     });
   }
+  var journalLoad = $("journalLoad"), journalFile = $("journalFile"), journalStamp = $("journalStamp");
+  if(journalLoad && journalFile){
+    journalLoad.addEventListener("click", function(){ journalFile.click(); });
+    journalFile.addEventListener("change", function(){
+      var f = journalFile.files && journalFile.files[0];
+      journalFile.value = "";
+      if(!f) return;
+      if(f.size > 1024 * 1024){ say("Fișier prea mare pentru un jurnal (max. 1 MB)."); return; }
+      var fr = new FileReader();
+      fr.onload = function(){
+        var txt = String(fr.result || "");
+        if(journalText.value.trim() && !confirm("Înlocuiești jurnalul curent cu textul din fișier?")) return;
+        journalText.value = txt;
+        say("Jurnal încărcat din " + f.name + ".");
+      };
+      fr.onerror = function(){ say("Fișierul nu a putut fi citit."); };
+      fr.readAsText(f);
+    });
+  }
+  if(journalStamp){
+    journalStamp.addEventListener("click", function(){
+      var d = new Date(), pad = function(n){ return (n < 10 ? "0" : "") + n; };
+      var stamp = "[" + d.getFullYear() + "-" + pad(d.getMonth()+1) + "-" + pad(d.getDate()) + " " + pad(d.getHours()) + ":" + pad(d.getMinutes()) + "] ";
+      var v = journalText.value, a = journalText.selectionStart, b = journalText.selectionEnd;
+      if(typeof a !== "number"){ a = b = v.length; }
+      var pre = (a > 0 && v.charAt(a-1) !== "\n") ? "\n" : "";
+      journalText.value = v.slice(0, a) + pre + stamp + v.slice(b);
+      var pos = a + pre.length + stamp.length;
+      journalText.focus();
+      try{ journalText.setSelectionRange(pos, pos); }catch(e){}
+    });
+  }
   if(journalClear){
     journalClear.addEventListener("click", function(){
       if(!journalText.value) return;
@@ -880,16 +917,16 @@
 
   /* ---- autoevaluare ---- */
   var QUESTIONS = [
-    {q:"Cine a dezvoltat sistemul Pranic Healing?", opts:["Dolores Krieger","Choa Kok Sui","Dora Kunz","Mikao Usui"], correct:1, explain:"Choa Kok Sui a publicat lucrarea fondatoare a Pranic Healing în 1987, în Filipine."},
-    {q:"Ce sistem a fost dezvoltat de Dolores Krieger și Dora Kunz în 1972?", opts:["Pranic Healing","Reiki","Therapeutic Touch","Qigong terapeutic"], correct:2, explain:"Therapeutic Touch a fost dezvoltat în context de nursing, la New York University."},
-    {q:"Care este secvența de bază a procedurii în sistemul Pranic Healing?", opts:["Scanare, curățare, energizare","Curățare, scanare, meditație","Energizare, respirație, atingere","Vizualizare, curățare, proiecție"], correct:0, explain:"Scanare, curățare, energizare — structura de bază pe care se construiesc nivelurile sistemului."},
-    {q:"Câte chakre majore sunt lucrate la nivelul intermediar?", opts:["Șapte","Nouă","Unsprezece","Treisprezece"], correct:2, explain:"Sistemul Pranic Healing recunoaște unsprezece chakre majore la nivelul intermediar, extinzând baza de șapte."},
-    {q:"Ce introduce nivelul avansat (Advanced Pranic Healing)?", opts:["Lucrul la distanță","Prana colorată","Scanarea de bază","Psihoterapia pranică"], correct:1, explain:"Nivelul avansat lucrează cu prana colorată, asociind culori diferite unor intenții simbolice."},
-    {q:"Ce spun, în prezent, cercetările controlate despre practicile bazate pe un „câmp energetic” (de exemplu Therapeutic Touch)?", opts:["Au demonstrat că vindecă boli grave","Nu au găsit dovezi convingătoare de efect dincolo de placebo și relaxare","Au demonstrat că pot înlocui medicația","Au dovedit că funcționează doar la distanță"], correct:1, explain:"Câmpul energetic nu a fost demonstrat, iar studiile nu arată eficacitate peste placebo. Aceste practici nu înlocuiesc îngrijirea medicală."},
-    {q:"Care este stratul câmpului energetic cel mai apropiat de corpul fizic, în descrierea tradițională?", opts:["Corpul mental","Corpul emoțional","Corpul eteric","Corpul cauzal"], correct:2, explain:"Corpul eteric este descris ca stratul cel mai apropiat de corpul fizic, asociat vitalității de bază (concept spiritual, nu anatomic)."},
-    {q:"Ce ramură abordează corpul emoțional și mental prin tehnici bioenergetice?", opts:["Pranic Crystal Healing","Pranic Psychotherapy","Advanced Pranic Healing","Therapeutic Touch"], correct:1, explain:"Pranic Psychotherapy aplică principiile bioenergetice asupra tiparelor emoționale și mentale; nu este psihoterapie clinică."},
-    {q:"Ce tradiție este adesea indicată drept rădăcina conceptuală a multor sisteme moderne de „vindecare energetică”?", opts:["Qigong terapeutic","Pranic Crystal Healing","Therapeutic Touch","Arhatic Yoga"], correct:0, explain:"Qigong-ul chinezesc, cu tradiție multiseculară, este adesea indicat drept bază conceptuală a multor sisteme moderne."},
-    {q:"Ce ar trebui să faci dacă ai un simptom medical persistent?", opts:["Să folosești doar exerciții bioenergetice","Să consulți un medic și să urmezi tratamentul recomandat","Să aștepți să treacă fără consult","Să întrerupi tratamentul în curs"], correct:1, explain:"Bioenergoterapia nu are dovezi de vindecare și nu înlocuiește consultul sau tratamentul medical."}
+    {q:"Cine a dezvoltat sistemul Pranic Healing?", opts:["Dolores Krieger","Choa Kok Sui","Dora Kunz","Mikao Usui"], correct:1, explain:"Choa Kok Sui a publicat lucrarea fondatoare a Pranic Healing în 1987, în Filipine.",ref:"istoric"},
+    {q:"Ce sistem a fost dezvoltat de Dolores Krieger și Dora Kunz în 1972?", opts:["Pranic Healing","Reiki","Therapeutic Touch","Qigong terapeutic"], correct:2, explain:"Therapeutic Touch a fost dezvoltat în context de nursing, la New York University.",ref:"istoric"},
+    {q:"Care este secvența de bază a procedurii în sistemul Pranic Healing?", opts:["Scanare, curățare, energizare","Curățare, scanare, meditație","Energizare, respirație, atingere","Vizualizare, curățare, proiecție"], correct:0, explain:"Scanare, curățare, energizare — structura de bază pe care se construiesc nivelurile sistemului.",ref:"n1"},
+    {q:"Câte chakre majore sunt lucrate la nivelul intermediar?", opts:["Șapte","Nouă","Unsprezece","Treisprezece"], correct:2, explain:"Sistemul Pranic Healing recunoaște unsprezece chakre majore la nivelul intermediar, extinzând baza de șapte.",ref:"n2"},
+    {q:"Ce introduce nivelul avansat (Advanced Pranic Healing)?", opts:["Lucrul la distanță","Prana colorată","Scanarea de bază","Psihoterapia pranică"], correct:1, explain:"Nivelul avansat lucrează cu prana colorată, asociind culori diferite unor intenții simbolice.",ref:"n4"},
+    {q:"Ce spun, în prezent, cercetările controlate despre practicile bazate pe un „câmp energetic” (de exemplu Therapeutic Touch)?", opts:["Au demonstrat că vindecă boli grave","Nu au găsit dovezi convingătoare de efect dincolo de placebo și relaxare","Au demonstrat că pot înlocui medicația","Au dovedit că funcționează doar la distanță"], correct:1, explain:"Câmpul energetic nu a fost demonstrat, iar studiile nu arată eficacitate peste placebo. Aceste practici nu înlocuiesc îngrijirea medicală.",ref:"istoric"},
+    {q:"Care este stratul câmpului energetic cel mai apropiat de corpul fizic, în descrierea tradițională?", opts:["Corpul mental","Corpul emoțional","Corpul eteric","Corpul cauzal"], correct:2, explain:"Corpul eteric este descris ca stratul cel mai apropiat de corpul fizic, asociat vitalității de bază (concept spiritual, nu anatomic).",ref:"camp"},
+    {q:"Ce ramură abordează corpul emoțional și mental prin tehnici bioenergetice?", opts:["Pranic Crystal Healing","Pranic Psychotherapy","Advanced Pranic Healing","Therapeutic Touch"], correct:1, explain:"Pranic Psychotherapy aplică principiile bioenergetice asupra tiparelor emoționale și mentale; nu este psihoterapie clinică.",ref:"n5"},
+    {q:"Ce tradiție este adesea indicată drept rădăcina conceptuală a multor sisteme moderne de „vindecare energetică”?", opts:["Qigong terapeutic","Pranic Crystal Healing","Therapeutic Touch","Arhatic Yoga"], correct:0, explain:"Qigong-ul chinezesc, cu tradiție multiseculară, este adesea indicat drept bază conceptuală a multor sisteme moderne.",ref:"istoric"},
+    {q:"Ce ar trebui să faci dacă ai un simptom medical persistent?", opts:["Să folosești doar exerciții bioenergetice","Să consulți un medic și să urmezi tratamentul recomandat","Să aștepți să treacă fără consult","Să întrerupi tratamentul în curs"], correct:1, explain:"Bioenergoterapia nu are dovezi de vindecare și nu înlocuiește consultul sau tratamentul medical.",ref:"intro"}
   ];
 
   var root = $("quizRoot");
@@ -910,6 +947,7 @@
     view = [];
     scoreBox.classList.remove("show");
     scoreBox.textContent = "";
+    if($("quizReview")){ $("quizReview").hidden = true; $("quizReview").textContent = ""; }
     root.textContent = "";
     QUESTIONS.forEach(function(item, qi){
       var opts = shuffle(item.opts.map(function(t, i){ return {t:t, ok:i === item.correct}; }));
@@ -974,6 +1012,26 @@
     });
     scoreBox.textContent = "Scor: " + correct + " din " + QUESTIONS.length + " răspunsuri corecte.";
     scoreBox.classList.add("show");
+    var rv = $("quizReview");
+    if(rv){
+      var miss = [];
+      QUESTIONS.forEach(function(item, qi){
+        if(answered[qi] !== undefined && !view[qi][answered[qi]].ok && miss.indexOf(item.ref) < 0) miss.push(item.ref);
+      });
+      rv.textContent = "";
+      if(miss.length){
+        rv.appendChild(document.createTextNode("De recitit: "));
+        miss.forEach(function(id, k){
+          var nav = document.querySelector('.navlist a[data-target="' + id + '"]');
+          var a = document.createElement("a");
+          a.href = "#" + id;
+          a.textContent = nav ? nav.textContent.replace(/^\s*[·\d]+\s*/, "").trim() : id;
+          if(k) rv.appendChild(document.createTextNode(" · "));
+          rv.appendChild(a);
+        });
+        rv.hidden = false;
+      } else { rv.hidden = true; }
+    }
   }
 
   $("quizReset").addEventListener("click", function(){ renderQuiz(); });
