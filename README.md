@@ -4,6 +4,8 @@ Curs educativ despre bioenergoterapie și sistemul Pranic Healing, într-un sing
 
 **Live:** https://chiuta.github.io/Bioenergoterapie/
 
+Ultima actualizare: 11 octombrie 2026
+
 ![Captura de ecran](screenshot.png)
 
 > **Avertisment.** Bioenergoterapia nu este medicină și nu tratează boli. Câmpul energetic, aura și chakrele sunt concepte din tradiții spirituale și nu au fost demonstrate științific; nu există dovezi că bioenergoterapia vindecă vreo afecțiune. Nu amâna și nu întrerupe un tratament prescris de medic. Avertismentul este afișat permanent în partea de sus a fiecărei pagini a aplicației.
@@ -49,6 +51,12 @@ Verificate în cod și în browser:
 ## Rulare locală / offline
 
 Descarcă `index.html` și deschide-l în browser; nu are nevoie de internet. Pentru GitHub Pages, publică repository-ul (fișierul `.nojekyll` este inclus).
+
+## Istoric / Changelog
+
+### 11.10.2026 — 11 octombrie 2026
+- Accesibilitate: titlu h1 în zona principală (cel din meniul lateral era ascuns pe mobil); verificare axe fără încălcări la 1280 și 360 px.
+- Jurnalul rămâne doar în memorie, intenționat (confidențialitate); avertisment la părăsirea paginii și descărcare .txt.
 
 ## Licență
 
