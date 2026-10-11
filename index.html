@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-Edr5Zqv6SCV9vDvBlshxYJdqHHRTztRPQ4LqphtjaA8='; style-src 'unsafe-inline'; img-src data:; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-j0Kf7zy/BwwhjwnXoKT1ZDzohc6tHZaMQFJqsnK1Z0o='; style-src 'unsafe-inline'; img-src data:; base-uri 'none'; form-action 'none'">
 <meta name="theme-color" content="#0B2426">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Bioenergoterapie — curs interactiv">
@@ -183,7 +183,10 @@
     background:var(--bg-panel);resize:vertical;line-height:1.55;
   }
   .journal-area:focus{outline:none;border-color:var(--accent)}
-  .journal-btns{display:flex;gap:10px;margin-top:12px}
+  .journal-btns{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+  .journal-keep{margin:14px 0 0;font-size:.9rem}
+  .journal-keep label{cursor:pointer}
+  .journal-keep-note{color:var(--ink-soft);font-size:.82rem}
   .btn-ghost{background:transparent;color:var(--accent);border:1px solid var(--accent)}
   .btn-ghost:hover{background:var(--violet-soft);color:#fff}
 
@@ -598,7 +601,7 @@
     <section id="p-jurnal" data-panel="jurnal" class="panel">
       <p class="eyebrow">Notițe personale</p>
       <h2 class="title">Jurnal de practică</h2>
-      <p>Notează observații după fiecare sesiune de scanare, curățare sau energizare — ce ai simțit, cât a durat, ce nivel ai exersat. Notițele există doar în această sesiune a browserului: descarcă-le înainte de a închide pagina, altfel se pierd la reîncărcare — aplicația nu folosește stocare persistentă. Un jurnal descărcat anterior se poate reîncărca cu „Încarcă (.txt)”.</p>
+      <p>Notează observații după fiecare sesiune de scanare, curățare sau energizare — ce ai simțit, cât a durat, ce nivel ai exersat. Implicit, notițele există doar în această sesiune a browserului: descarcă-le înainte de a închide pagina, altfel se pierd la reîncărcare. Un jurnal descărcat anterior se poate reîncărca cu „Încarcă (.txt)”. Dacă vrei, poți bifa mai jos păstrarea jurnalului în acest browser (opțional, dezactivată implicit).</p>
       <textarea id="journalText" class="journal-area" aria-label="Jurnal de practică" rows="14" placeholder="Ex: Exercițiu de scanare, 5 min — am simțit o zonă mai rece la nivelul umărului stâng…"></textarea>
       <div class="journal-btns">
         <button type="button" class="btn" id="journalDownload">Descarcă (.txt)</button>
@@ -607,6 +610,7 @@
         <input type="file" id="journalFile" accept=".txt,text/plain" hidden aria-label="Alege un jurnal salvat anterior (.txt)">
         <button type="button" class="btn btn-ghost" id="journalClear">Golește</button>
       </div>
+      <p class="journal-keep"><label><input type="checkbox" id="journalKeep"> Păstrează jurnalul în acest browser</label><br><span class="journal-keep-note" id="journalKeepNote">Dezactivat: jurnalul rămâne doar în memoria paginii. Dacă îl activezi, textul se salvează automat în stocarea locală a acestui browser, <strong>necriptat</strong> — nu folosi opțiunea pe un calculator comun și nu scrie date sensibile.</span></p>
     </section>
 
     <section id="p-quiz" data-panel="quiz" class="panel">
@@ -884,6 +888,7 @@
         var txt = String(fr.result || "");
         if(journalText.value.trim() && !confirm("Înlocuiești jurnalul curent cu textul din fișier?")) return;
         journalText.value = txt;
+        persistJournal();
         say("Jurnal încărcat din " + f.name + ".");
       };
       fr.onerror = function(){ say("Fișierul nu a putut fi citit."); };
@@ -898,9 +903,43 @@
       if(typeof a !== "number"){ a = b = v.length; }
       var pre = (a > 0 && v.charAt(a-1) !== "\n") ? "\n" : "";
       journalText.value = v.slice(0, a) + pre + stamp + v.slice(b);
+      persistJournal();
       var pos = a + pre.length + stamp.length;
       journalText.focus();
       try{ journalText.setSelectionRange(pos, pos); }catch(e){}
+    });
+  }
+  /* ---- păstrare opțională a jurnalului în acest browser (implicit dezactivată; necriptat) ---- */
+  var journalKeep = $("journalKeep"), journalKeepNote = $("journalKeepNote");
+  var JK_FLAG = "bioenergoterapie.jurnal.pastrare", JK_TEXT = "bioenergoterapie.jurnal.text";
+  var keepOn = false, keepTimer = null;
+  function lsGet(k){ try{ return window.localStorage.getItem(k); }catch(e){ return null; } }
+  function lsSet(k, v){ try{ window.localStorage.setItem(k, v); return true; }catch(e){ return false; } }
+  function lsDel(k){ try{ window.localStorage.removeItem(k); }catch(e){} }
+  function persistJournal(){ if(keepOn && journalText && !lsSet(JK_TEXT, journalText.value)){ say("Nu am putut salva jurnalul în acest browser."); } }
+  function setKeepNote(on){
+    if(!journalKeepNote) return;
+    journalKeepNote.innerHTML = on
+      ? "Activat: textul se salvează automat în stocarea locală a acestui browser, <strong>necriptat</strong>. Debifează caseta ca să ștergi copia salvată."
+      : "Dezactivat: jurnalul rămâne doar în memoria paginii. Dacă îl activezi, textul se salvează automat în stocarea locală a acestui browser, <strong>necriptat</strong> — nu folosi opțiunea pe un calculator comun și nu scrie date sensibile.";
+  }
+  if(journalKeep && journalText){
+    if(lsGet(JK_FLAG) === "1"){
+      keepOn = true; journalKeep.checked = true; setKeepNote(true);
+      var saved = lsGet(JK_TEXT); if(saved && !journalText.value) journalText.value = saved;
+    }
+    journalKeep.addEventListener("change", function(){
+      if(journalKeep.checked){
+        if(!lsSet(JK_FLAG, "1")){ journalKeep.checked = false; say("Stocarea locală nu este disponibilă în acest browser."); return; }
+        keepOn = true; setKeepNote(true); persistJournal(); say("Jurnalul va fi păstrat în acest browser.");
+      } else {
+        keepOn = false; lsDel(JK_FLAG); lsDel(JK_TEXT); setKeepNote(false); say("Copia salvată a jurnalului a fost ștearsă.");
+      }
+    });
+    journalText.addEventListener("input", function(){
+      if(!keepOn) return;
+      if(keepTimer) clearTimeout(keepTimer);
+      keepTimer = setTimeout(persistJournal, 400);
     });
   }
   if(journalClear){
@@ -908,10 +947,12 @@
       if(!journalText.value) return;
       if(confirm("Golești tot jurnalul? Această acțiune nu poate fi anulată.")){
         journalText.value = "";
+        persistJournal();
       }
     });
   }
   window.addEventListener("beforeunload", function(e){
+    if(keepOn){ persistJournal(); return; }
     if(journalText && journalText.value.trim()){ e.preventDefault(); e.returnValue = ""; }
   });
 

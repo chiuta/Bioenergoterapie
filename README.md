@@ -21,7 +21,7 @@ Verificate în cod și în browser:
 - Căutare în curs, fără sensibilitate la diacritice.
 - Linkuri directe către secțiuni (de exemplu `#camp`), butonul „înapoi" al browserului funcționează între secțiuni.
 - Tipărire (doar secțiunea afișată, alb-negru), distribuire (link), ecran complet, menținerea ecranului activ (unde browserul o permite).
-- Jurnal de practică: text liber, descărcabil ca `.txt` și reîncărcabil din fișier („Încarcă (.txt)”, cu confirmare dacă înlocuiește text existent), cu buton pentru inserarea datei și orei în notă și confirmare la golire. Nu se salvează nimic în browser.
+- Jurnal de practică: text liber, descărcabil ca `.txt` și reîncărcabil din fișier („Încarcă (.txt)”, cu confirmare dacă înlocuiește text existent), cu buton pentru inserarea datei și orei în notă și confirmare la golire. Implicit nu se salvează nimic în browser; păstrarea locală este o opțiune bifată de tine.
 - Autoevaluare de 10 întrebări cu explicații; ordinea răspunsurilor se amestecă la fiecare încercare; la final apar trimiteri către secțiunile de recitit pentru răspunsurile greșite.
 - Respectă `prefers-reduced-motion`; funcționează de la 390 px lățime; fără JavaScript se afișează toate secțiunile.
 
@@ -30,12 +30,12 @@ Verificate în cod și în browser:
 1. Deschide pagina și alege o secțiune din meniul din stânga (pe mobil, apasă ☰).
 2. Caută un termen în câmpul de căutare; apasă Enter sau alege un rezultat.
 3. Exercițiile marcate „Exercițiu practic" sunt exerciții de atenție și vizualizare, nu proceduri terapeutice.
-4. În „Jurnal" scrie notițe și descarcă-le (`.txt`) înainte de a închide pagina: nu se salvează nicăieri.
+4. În „Jurnal" scrie notițe și descarcă-le (`.txt`) înainte de a închide pagina: implicit nu se salvează nicăieri; opțional poți bifa „Păstrează jurnalul în acest browser”.
 5. În „Autoevaluare" răspunde la întrebări; „Reia testul" amestecă din nou răspunsurile.
 
 ## Confidențialitate și rețea
 
-- Stocare locală: aplicația nu folosește `localStorage`, `sessionStorage`, IndexedDB sau cookie-uri. Jurnalul există doar în memoria paginii.
+- Stocare locală: implicit aplicația nu scrie nimic în `localStorage`, `sessionStorage`, IndexedDB sau cookie-uri, iar jurnalul există doar în memoria paginii. Doar dacă bifezi tu „Păstrează jurnalul în acest browser”, textul (necriptat) și un indicator se salvează în `localStorage` (chei `bioenergoterapie.jurnal.*`); debifarea le șterge.
 - Rețea: aplicația nu face nicio cerere de rețea și nu conține linkuri externe; o politică CSP (`default-src 'none'`, scriptul autorizat prin hash SHA-256, fără `'unsafe-inline'` pentru scripturi) blochează orice încărcare externă. În `<head>` apar doar adrese în metadatele Open Graph (`chiuta.github.io`), neaccesate de aplicație.
 - Permisiuni: nu cere permisiuni. „Ecran activ" (Screen Wake Lock) și „Distribuie" (meniul de partajare sau clipboard) funcționează doar la apăsarea butoanelor.
 - Zero telemetrie, fără conturi.
@@ -53,6 +53,9 @@ Verificate în cod și în browser:
 Descarcă `index.html` și deschide-l în browser; nu are nevoie de internet. Pentru GitHub Pages, publică repository-ul (fișierul `.nojekyll` este inclus).
 
 ## Istoric / Changelog
+
+### 11.10.2026 (a treia actualizare) — 11 octombrie 2026
+- Jurnal: opțiune „Păstrează jurnalul în acest browser” (dezactivată implicit, cu avertisment că stocarea e necriptată; debifarea șterge copia salvată). Fără conținut nou despre practici sau sănătate.
 
 ### 11.10.2026 (a doua actualizare) — 11 octombrie 2026
 - Securitate: CSP cu `script-src` pe hash SHA-256, fără `'unsafe-inline'` pentru scripturi.
