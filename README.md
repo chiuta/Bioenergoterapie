@@ -1,10 +1,10 @@
 # Bioenergoterapie — curs interactiv
 
+**Versiune:** 1.0.0 · **Ultima actualizare:** 12 octombrie 2026
+
 Curs educativ despre bioenergoterapie și sistemul Pranic Healing, într-un singur fișier HTML, offline. Practică bazată pe credințe, fără dovezi științifice de vindecare.
 
 **Live:** https://chiuta.github.io/Bioenergoterapie/
-
-Ultima actualizare: 11 octombrie 2026
 
 ![Captura de ecran](screenshot.png)
 
@@ -53,6 +53,9 @@ Verificate în cod și în browser:
 Descarcă `index.html` și deschide-l în browser; nu are nevoie de internet. Pentru GitHub Pages, publică repository-ul (fișierul `.nojekyll` este inclus).
 
 ## Istoric / Changelog
+
+### 1.0.0 — 12 octombrie 2026
+- Versiunea și data ultimei actualizări sunt afișate în aplicație (subsol).
 
 ### 11.10.2026 (a treia actualizare) — 11 octombrie 2026
 - Jurnal: opțiune „Păstrează jurnalul în acest browser” (dezactivată implicit, cu avertisment că stocarea e necriptată; debifarea șterge copia salvată). Fără conținut nou despre practici sau sănătate.
