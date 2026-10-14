@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "slug": "bioenergoterapie",
+  "name": "Bioenergoterapie — curs interactiv",
+  "version": "1.1.0",
+  "updated": "2026-10-14",
+  "description": "Curs interactiv despre bioenergoterapie: câmpul energetic așa cum îl descriu practicanții, istoric, nivelurile sistemului Pranic Healing, exerciții, diagrama chakrelor, comparații, glosar, jurnal și autoevaluare. Fără dovezi științifice de vindecare. Offline, fără frontiere.",
+  "egress": [],
+  "permissions": [
+    "navigator.share",
+    "clipboard",
+    "serviceWorker",
+    "localStorage"
+  ],
+  "storageKeys": [],
+  "sizeBytes": 160675,
+  "sha256": "826126a1ab041d4ae3e52092e9c4d2a58d4234137d58263f7aec4ce134cb92d4",
+  "csp": {
+    "present": true,
+    "directives": {
+      "default-src": "'none'",
+      "script-src": "'self' sha256×3",
+      "style-src": "'unsafe-inline'",
+      "img-src": "'self' data:",
+      "base-uri": "'none'",
+      "form-action": "'none'",
+      "manifest-src": "'self'",
+      "worker-src": "'self'"
+    },
+    "scriptInline": "hash",
+    "connect": "'none'"
+  },
+  "features": {
+    "export": true,
+    "import": true,
+    "i18n": [],
+    "pwa": {
+      "manifest": true,
+      "serviceWorker": true
+    },
+    "modules": [
+      "core",
+      "label",
+      "bundle"
+    ]
+  },
+  "kit": {
+    "version": "1.0.0",
+    "modules": [
+      "core",
+      "label",
+      "bundle"
+    ]
+  },
+  "selfSerializing": false
+}

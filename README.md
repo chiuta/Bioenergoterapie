@@ -1,6 +1,6 @@
 # Bioenergoterapie — curs interactiv
 
-**Versiune:** 1.0.0 · **Ultima actualizare:** 12 octombrie 2026
+**Versiune:** 1.1.0 · **Ultima actualizare:** 14 octombrie 2026
 
 Curs educativ despre bioenergoterapie și sistemul Pranic Healing, într-un singur fișier HTML, offline. Practică bazată pe credințe, fără dovezi științifice de vindecare.
 
@@ -53,6 +53,9 @@ Verificate în cod și în browser:
 Descarcă `index.html` și deschide-l în browser; nu are nevoie de internet. Pentru GitHub Pages, publică repository-ul (fișierul `.nojekyll` este inclus).
 
 ## Istoric / Changelog
+
+### 1.1.0 — 2026-10-14
+- Copie de rezervă și etichetare date (fff-kit).
 
 ### 1.0.0 — 12 octombrie 2026
 - Versiunea și data ultimei actualizări sunt afișate în aplicație (subsol).
