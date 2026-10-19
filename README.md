@@ -1,85 +1,87 @@
-# Bioenergoterapie — curs interactiv
+# Bioenergoterapie — interactive course
 
-**Versiune:** 1.2.0 · **Ultima actualizare:** 2026-10-19
+**English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-Curs educativ despre bioenergoterapie și sistemul Pranic Healing, într-un singur fișier HTML, offline. Practică bazată pe credințe, fără dovezi științifice de vindecare.
+**Version:** 1.2.0 · **Last updated:** 2026-10-19
 
-**Live:** https://chiuta.github.io/Bioenergoterapie/
+An educational course on bioenergy therapy and the Pranic Healing system, in a single, offline HTML file. A belief-based practice, with no scientific evidence of healing.
 
-![Captura de ecran](screenshot.png)
+**Live app:** https://chiuta.github.io/Bioenergoterapie/
 
-> **Avertisment.** Bioenergoterapia nu este medicină și nu tratează boli. Câmpul energetic, aura și chakrele sunt concepte din tradiții spirituale și nu au fost demonstrate științific; nu există dovezi că bioenergoterapia vindecă vreo afecțiune. Nu amâna și nu întrerupe un tratament prescris de medic. Avertismentul este afișat permanent în partea de sus a fiecărei pagini a aplicației.
+![Screenshot](screenshot.png)
 
-## Ce este
+> **Warning.** Bioenergy therapy is not medicine and does not treat diseases. The energy field, the aura and the chakras are concepts from spiritual traditions and have not been scientifically demonstrated; there is no evidence that bioenergy therapy cures any condition. Do not delay or interrupt a treatment prescribed by a doctor. The warning is displayed permanently at the top of every page of the app.
 
-O aplicație de învățare în română despre bioenergoterapie așa cum o descriu practicanții: „câmpul energetic uman", repere istorice (Therapeutic Touch, Pranic Healing, tradiții qigong și prana), cele cinci niveluri ale sistemului Pranic Healing ca schelet pedagogic, comparații între tradiții, glosar. Conținutul descrie ce susțin practicanții și nu recomandă tratamente. Detaliile istorice și cele despre România pe care nu le-am putut verifica sunt marcate „[neverificat]".
+## What it is
 
-## Funcții
+A learning app in Romanian about bioenergy therapy as practitioners describe it: the "human energy field", historical landmarks (Therapeutic Touch, Pranic Healing, qigong and prana traditions), the five levels of the Pranic Healing system as a pedagogical framework, comparisons between traditions, a glossary. The content describes what practitioners claim and does not recommend treatments. Historical details and details about Romania that I could not verify are marked "[neverificat]" (unverified).
 
-Verificate în cod și în browser:
-- 13 secțiuni (meniu lateral, ☰ pe mobil): Introducere, Istoric, Câmpul energetic (cu diagramă SVG a axei chakrelor), cinci niveluri de formare cu exerciții, Aplicații practice, Școli internaționale, Glosar, Jurnal, Autoevaluare.
-- Căutare în curs, fără sensibilitate la diacritice.
-- Linkuri directe către secțiuni (de exemplu `#camp`), butonul „înapoi" al browserului funcționează între secțiuni.
-- Tipărire (doar secțiunea afișată, alb-negru), distribuire (link), ecran complet, menținerea ecranului activ (unde browserul o permite).
-- Jurnal de practică: text liber, descărcabil ca `.txt` și reîncărcabil din fișier („Încarcă (.txt)”, cu confirmare dacă înlocuiește text existent), cu buton pentru inserarea datei și orei în notă și confirmare la golire. Implicit nu se salvează nimic în browser; păstrarea locală este o opțiune bifată de tine.
-- Autoevaluare de 10 întrebări cu explicații; ordinea răspunsurilor se amestecă la fiecare încercare; la final apar trimiteri către secțiunile de recitit pentru răspunsurile greșite.
-- Respectă `prefers-reduced-motion`; funcționează de la 390 px lățime; fără JavaScript se afișează toate secțiunile.
+## Features
 
-## Manual de utilizare
+Checked in the code and in the browser:
+- 13 sections (side menu, ☰ on mobile): Introduction, History, The energy field (with an SVG diagram of the chakra axis), five training levels with exercises, Practical applications, International schools, Glossary, Journal, Self-assessment.
+- Search within the course, insensitive to diacritics.
+- Direct links to sections (for example `#camp`); the browser's "back" button works between sections.
+- Printing (only the displayed section, black and white), sharing (link), full screen, keeping the screen awake (where the browser allows it).
+- Practice journal: free text, downloadable as `.txt` and reloadable from a file ("Încarcă (.txt)", with confirmation if it replaces existing text), with a button to insert the date and time into the note and a confirmation when clearing. By default nothing is saved in the browser; local retention is an option that you tick yourself.
+- Self-assessment with 10 questions and explanations; the order of the answers is shuffled on every attempt; at the end, pointers appear to the sections to reread for the wrong answers.
+- Respects `prefers-reduced-motion`; works from 390 px width; without JavaScript, all sections are displayed.
 
-1. Deschide pagina și alege o secțiune din meniul din stânga (pe mobil, apasă ☰).
-2. Caută un termen în câmpul de căutare; apasă Enter sau alege un rezultat.
-3. Exercițiile marcate „Exercițiu practic" sunt exerciții de atenție și vizualizare, nu proceduri terapeutice.
-4. În „Jurnal" scrie notițe și descarcă-le (`.txt`) înainte de a închide pagina: implicit nu se salvează nicăieri; opțional poți bifa „Păstrează jurnalul în acest browser”.
-5. În „Autoevaluare" răspunde la întrebări; „Reia testul" amestecă din nou răspunsurile.
+## User guide
 
-## Confidențialitate și rețea
+1. Open the page and choose a section from the menu on the left (on mobile, press ☰).
+2. Search for a term in the search field; press Enter or pick a result.
+3. Exercises marked "Exercițiu practic" (Practical exercise) are attention and visualization exercises, not therapeutic procedures.
+4. In "Jurnal" (Journal), write notes and download them (`.txt`) before closing the page: by default nothing is saved anywhere; optionally you can tick "Păstrează jurnalul în acest browser" (Keep the journal in this browser).
+5. In "Autoevaluare" (Self-assessment), answer the questions; "Reia testul" (Retake the test) shuffles the answers again.
 
-- Stocare locală: implicit aplicația nu scrie nimic în `localStorage`, `sessionStorage`, IndexedDB sau cookie-uri, iar jurnalul există doar în memoria paginii. Doar dacă bifezi tu „Păstrează jurnalul în acest browser”, textul (necriptat) și un indicator se salvează în `localStorage` (chei `bioenergoterapie.jurnal.*`); debifarea le șterge.
-- Rețea: aplicația nu face nicio cerere de rețea și nu conține linkuri externe; o politică CSP (`default-src 'none'`, scriptul autorizat prin hash SHA-256, fără `'unsafe-inline'` pentru scripturi) blochează orice încărcare externă. În `<head>` apar doar adrese în metadatele Open Graph (`chiuta.github.io`), neaccesate de aplicație.
-- Permisiuni: nu cere permisiuni. „Ecran activ" (Screen Wake Lock) și „Distribuie" (meniul de partajare sau clipboard) funcționează doar la apăsarea butoanelor.
-- Zero telemetrie, fără conturi.
+## Privacy and network
 
-## Limite și avertismente
+- Local storage: by default the app writes nothing to `localStorage`, `sessionStorage`, IndexedDB or cookies, and the journal exists only in the page's memory. Only if you yourself tick "Păstrează jurnalul în acest browser" are the (unencrypted) text and an indicator saved in `localStorage` (keys `bioenergoterapie.jurnal.*`); unticking deletes them.
+- Network: the app makes no network requests and contains no external links; a CSP (`default-src 'none'`, the script authorized by SHA-256 hash, no `'unsafe-inline'` for scripts) blocks any external loading. In `<head>` there appear only addresses in the Open Graph metadata (`chiuta.github.io`), not accessed by the app.
+- Permissions: it requests no permissions. "Ecran activ" (Screen Wake Lock) and "Distribuie" (Share; share menu or clipboard) work only when you press the buttons.
+- Zero telemetry, no accounts.
 
-- Nu este material medical și nu înlocuiește diagnosticul sau tratamentul. Pentru orice simptom persistent, mergi la medic; aplicația nu recomandă nicio procedură pentru boli.
-- Câmpul energetic, aura, chakrele și „prana colorată" nu au fost demonstrate științific; cercetările controlate asupra practicilor înrudite (de exemplu Therapeutic Touch) nu au găsit eficacitate dincolo de placebo. Mențiunea unui experiment publicat în JAMA în 1998 este din memoria autorului aplicației și trebuie verificată înainte de a fi citată.
-- Structura pe cinci niveluri urmează sistemul Pranic Healing și nu este singura organizare posibilă a domeniului.
-- Afirmațiile despre statutul bioenergoterapiei în România și despre „bioenergoterapia central-europeană" sunt marcate neverificate.
-- Practicile „la distanță" sunt prezentate ca premisă a practicanților, fără dovezi de efect.
+## Limits and warnings
 
-## Rulare locală / offline
+- It is not medical material and does not replace diagnosis or treatment. For any persistent symptom, see a doctor; the app does not recommend any procedure for diseases.
+- The energy field, the aura, the chakras and "colored prana" have not been scientifically demonstrated; controlled research on related practices (for example Therapeutic Touch) has found no efficacy beyond placebo. The mention of an experiment published in JAMA in 1998 comes from the app author's memory and must be verified before being cited.
+- The five-level structure follows the Pranic Healing system and is not the only possible organization of the field.
+- The claims about the status of bioenergy therapy in Romania and about "Central European bioenergy therapy" are marked unverified.
+- "Distant" practices are presented as the practitioners' premise, with no evidence of effect.
 
-Descarcă `index.html` și deschide-l în browser; nu are nevoie de internet. Pentru GitHub Pages, publică repository-ul (fișierul `.nojekyll` este inclus).
+## Running locally / offline
 
-## Istoric / Changelog
+Download `index.html` and open it in a browser; it needs no internet. For GitHub Pages, publish the repository (the `.nojekyll` file is included).
+
+## History / Changelog
 
 ### 1.2.0 — 2026-10-19
-- În legenda diagramei, link ♪ (filă nouă) pentru fiecare dintre cele 7 centre spre Aurora (`#<chakră>`; nu pornește sunetul), cu avertisment: frecvențele din Aurora sunt o convenție modernă, nu fac parte din Pranic Healing și nu au efect terapeutic dovedit.
+- In the diagram legend, a ♪ link (new tab) for each of the 7 centers to Aurora (`#<chakra>`; it does not start the sound), with a warning: the frequencies in Aurora are a modern convention, are not part of Pranic Healing and have no proven therapeutic effect.
 
 ### 1.1.0 — 2026-10-14
-- Copie de rezervă și etichetare date (fff-kit).
+- Backup and data labeling (fff-kit).
 
-### 1.0.0 — 12 octombrie 2026
-- Versiunea și data ultimei actualizări sunt afișate în aplicație (subsol).
+### 1.0.0 — 12 October 2026
+- The version and the date of the last update are shown in the app (footer).
 
-### 11.10.2026 (a treia actualizare) — 11 octombrie 2026
-- Jurnal: opțiune „Păstrează jurnalul în acest browser” (dezactivată implicit, cu avertisment că stocarea e necriptată; debifarea șterge copia salvată). Fără conținut nou despre practici sau sănătate.
+### 11.10.2026 (third update) — 11 October 2026
+- Journal: option "Păstrează jurnalul în acest browser" (off by default, with a warning that the storage is unencrypted; unticking deletes the saved copy). No new content about practices or health.
 
-### 11.10.2026 (a doua actualizare) — 11 octombrie 2026
-- Securitate: CSP cu `script-src` pe hash SHA-256, fără `'unsafe-inline'` pentru scripturi.
-- Jurnal: reîncărcare din fișier `.txt` și inserarea datei și orei (jurnalul rămâne doar în memoria paginii).
-- Autoevaluare: trimiteri către secțiunile de recitit pentru întrebările greșite (fără conținut nou).
+### 11.10.2026 (second update) — 11 October 2026
+- Security: CSP with `script-src` by SHA-256 hash, no `'unsafe-inline'` for scripts.
+- Journal: reloading from a `.txt` file and inserting the date and time (the journal stays only in the page's memory).
+- Self-assessment: pointers to the sections to reread for wrong questions (no new content).
 
-### 11.10.2026 — 11 octombrie 2026
-- Accesibilitate: titlu h1 în zona principală (cel din meniul lateral era ascuns pe mobil); verificare axe fără încălcări la 1280 și 360 px.
-- Jurnalul rămâne doar în memorie, intenționat (confidențialitate); avertisment la părăsirea paginii și descărcare .txt.
+### 11.10.2026 — 11 October 2026
+- Accessibility: h1 heading in the main area (the one in the side menu was hidden on mobile); axe check with no violations at 1280 and 360 px.
+- The journal stays in memory only, intentionally (privacy); warning when leaving the page and `.txt` download.
 
-## Licență
+## License
 
-MIT — vezi fișierul LICENSE.
+MIT — see the LICENSE file.
 
-## Autor
+## Author
 
 Alexio — Alexandru-Ionuț Chiuță, contact: alexio@trom.tf
 
