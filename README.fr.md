@@ -10,7 +10,7 @@ Cours éducatif sur la bioénergie thérapeutique et le système Pranic Healing,
 
 **Application en ligne :** https://chiuta.github.io/Bioenergoterapie/
 
-![Capture d'écran](screenshot.png)
+![Capture d'écran](screenshot.fr.png)
 
 > **Avertissement.** La bioénergie thérapeutique n'est pas de la médecine et ne soigne pas les maladies. Le champ énergétique, l'aura et les chakras sont des concepts issus de traditions spirituelles et n'ont pas été démontrés scientifiquement ; il n'existe aucune preuve que la bioénergie thérapeutique guérisse une quelconque affection. Ne retardez pas et n'interrompez pas un traitement prescrit par un médecin. L'avertissement est affiché en permanence en haut de chaque page de l'application.
 

@@ -10,7 +10,7 @@ Oktatási tanfolyam a bioenergia-terápiáról és a Pranic Healing rendszerről
 
 **Online alkalmazás:** https://chiuta.github.io/Bioenergoterapie/
 
-![Képernyőkép](screenshot.png)
+![Képernyőkép](screenshot.hu.png)
 
 > **Figyelmeztetés.** A bioenergia-terápia nem orvoslás, és nem kezel betegségeket. Az energiamező, az aura és a csakrák spirituális hagyományok fogalmai, tudományosan nem igazolták őket; nincs bizonyíték arra, hogy a bioenergia-terápia bármilyen betegséget meggyógyítana. Ne halaszd el, és ne szakítsd meg az orvos által felírt kezelést. A figyelmeztetés az alkalmazás minden oldalának tetején állandóan látható.
 

@@ -10,7 +10,7 @@ An educational course on bioenergy therapy and the Pranic Healing system, in a s
 
 **Live app:** https://chiuta.github.io/Bioenergoterapie/
 
-![Screenshot](screenshot.png)
+![Screenshot](screenshot.en.png)
 
 > **Warning.** Bioenergy therapy is not medicine and does not treat diseases. The energy field, the aura and the chakras are concepts from spiritual traditions and have not been scientifically demonstrated; there is no evidence that bioenergy therapy cures any condition. Do not delay or interrupt a treatment prescribed by a doctor. The warning is displayed permanently at the top of every page of the app.
 

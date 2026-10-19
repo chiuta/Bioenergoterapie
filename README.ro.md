@@ -10,7 +10,7 @@ Curs educativ despre bioenergoterapie și sistemul Pranic Healing, într-un sing
 
 **Live:** https://chiuta.github.io/Bioenergoterapie/
 
-![Captura de ecran](screenshot.png)
+![Captura de ecran](screenshot.ro.png)
 
 > **Avertisment.** Bioenergoterapia nu este medicină și nu tratează boli. Câmpul energetic, aura și chakrele sunt concepte din tradiții spirituale și nu au fost demonstrate științific; nu există dovezi că bioenergoterapia vindecă vreo afecțiune. Nu amâna și nu întrerupe un tratament prescris de medic. Avertismentul este afișat permanent în partea de sus a fiecărei pagini a aplicației.
 
