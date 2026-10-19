@@ -87,6 +87,6 @@ MIT — vezi fișierul LICENSE.
 
 Alexio — Alexandru-Ionuț Chiuță, contact: alexio@trom.tf
 
-## English summary
+## Rezumat
 
-Bioenergoterapie is a single-file, offline, Romanian-language course on "bioenergy therapy" as practitioners describe it, structured around the Pranic Healing levels, with history, comparisons, glossary, practice journal and a 10-question quiz. A permanent notice states that the practice is not medicine and has no scientific evidence of healing; energy fields, auras and chakras are not scientifically demonstrated. The app makes no network requests, uses no browser storage and requests no permissions. Unverified historical and local claims are marked in the text.
+Bioenergoterapie este un curs într-un singur fișier, offline, în limba română, despre „terapia bioenergetică” așa cum o descriu practicienii, structurat pe nivelurile Pranic Healing, cu istorie, comparații, glosar, jurnal de practică și un test de 10 întrebări. O notă permanentă precizează că practica nu este medicină și nu are dovezi științifice de vindecare; câmpurile energetice, aurele și chakrele nu sunt demonstrate științific. Aplicația nu face cereri de rețea, nu folosește stocarea browserului și nu cere permisiuni. Afirmațiile istorice și locale neverificate sunt marcate în text.
