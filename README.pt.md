@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · **Português** · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versão:** 1.3.2 · **Última atualização:** 2026-10-22
+**Versão:** 1.3.3 · **Última atualização:** 2026-10-22
 
 Idiomas da interface: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -57,6 +57,9 @@ Verificadas no código e no navegador:
 Descarregue `index.html` e abra-o num navegador; não precisa de internet. Para o GitHub Pages, publique o repositório (o ficheiro `.nojekyll` está incluído).
 
 ## Histórico / Changelog
+
+### 1.3.3 — 2026-10-22
+- fff-kit 1.1.2: PBKDF2 600 000 iterações, proteção anti-clickjacking
 
 ### 1.3.2 — 2026-10-22
 - As caixas confirm()/prompt() do navegador substituídas por diálogos próprios traduzidos nos 8 idiomas (limpar o diário, substituição ao carregar um ficheiro, cópia manual da ligação).
