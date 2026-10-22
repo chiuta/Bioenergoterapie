@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · **Español** · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versión:** 1.3.3 · **Última actualización:** 2026-10-22
+**Versión:** 1.3.4 · **Última actualización:** 2026-10-22
 
 Idiomas de la interfaz: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -57,6 +57,9 @@ Comprobadas en el código y en el navegador:
 Descarga `index.html` y ábrelo en un navegador; no necesita internet. Para GitHub Pages, publica el repositorio (el archivo `.nojekyll` está incluido).
 
 ## Historial / Changelog
+
+### 1.3.4 — 2026-10-22
+- fff-kit 1.1.4: objetivos táctiles y tamaño mínimo de texto; objetivos táctiles/texto corregidos
 
 ### 1.3.3 — 2026-10-22
 - fff-kit 1.1.2: PBKDF2 600 000 iteraciones, protección anti-clickjacking
