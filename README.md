@@ -2,7 +2,7 @@
 
 **English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version:** 1.3.1 · **Last updated:** 2026-10-19
+**Version:** 1.3.2 · **Last updated:** 2026-10-22
 
 Interface languages: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -57,6 +57,9 @@ Checked in the code and in the browser:
 Download `index.html` and open it in a browser; it needs no internet. For GitHub Pages, publish the repository (the `.nojekyll` file is included).
 
 ## History / Changelog
+
+### 1.3.2 — 2026-10-22
+- Native browser confirm()/prompt() boxes replaced by own dialogs translated into the 8 languages (clearing the journal, replacing it when loading a file, manual link copy).
 
 ### 1.2.0 — 2026-10-19
 - In the diagram legend, a ♪ link (new tab) for each of the 7 centers to Aurora (`#<chakra>`; it does not start the sound), with a warning: the frequencies in Aurora are a modern convention, are not part of Pranic Healing and have no proven therapeutic effect.
