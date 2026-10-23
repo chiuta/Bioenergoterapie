@@ -2,7 +2,7 @@
 
 **English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version:** 1.3.5 · **Last updated:** 2026-10-23
+**Version:** 1.3.6 · **Last updated:** 2026-10-23
 
 Interface languages: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -40,7 +40,7 @@ Checked in the code and in the browser:
 ## Privacy and network
 
 - Local storage: by default the app writes nothing to `localStorage`, `sessionStorage`, IndexedDB or cookies, and the journal exists only in the page's memory. Only if you yourself tick "Păstrează jurnalul în acest browser" are the (unencrypted) text and an indicator saved in `localStorage` (keys `bioenergoterapie.jurnal.*`); unticking deletes them.
-- Network: the app makes no network requests and contains no external links; a CSP (`default-src 'none'`, the script authorized by SHA-256 hash, no `'unsafe-inline'` for scripts) blocks any external loading. In `<head>` there appear only addresses in the Open Graph metadata (`chiuta.github.io`), not accessed by the app.
+- Network: the app makes no network requests and contains no automatic external requests and only opens, on your click and in a new tab, the 7 ♪ links to Aurora and the "Buy Me a Coffee" link; a CSP (`default-src 'none'`, the script authorized by SHA-256 hash, no `'unsafe-inline'` for scripts) blocks any external loading. In `<head>` there appear only addresses in the Open Graph metadata (`chiuta.github.io`), not accessed by the app.
 - Permissions: it requests no permissions. "Ecran activ" (Screen Wake Lock) and "Distribuie" (Share; share menu or clipboard) work only when you press the buttons.
 - Zero telemetry, no accounts.
 
@@ -57,6 +57,9 @@ Checked in the code and in the browser:
 Download `index.html` and open it in a browser; it needs no internet. For GitHub Pages, publish the repository (the `.nojekyll` file is included).
 
 ## History / Changelog
+
+### 1.3.6 — 2026-10-23
+- Touch targets: search field and ♪ links in the diagram legend reach 44 px; README network section now accurately lists the external links (Aurora, Buy Me a Coffee)
 
 ### 1.3.4 — 2026-10-22
 - fff-kit 1.1.4: touch targets and minimum text size; touch targets/text fixed

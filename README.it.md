@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · **Italiano** · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versione:** 1.3.5 · **Ultimo aggiornamento:** 2026-10-23
+**Versione:** 1.3.6 · **Ultimo aggiornamento:** 2026-10-23
 
 Lingue dell'interfaccia: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -40,7 +40,7 @@ Verificate nel codice e nel browser:
 ## Privacy e rete
 
 - Archiviazione locale: per impostazione predefinita l'app non scrive nulla in `localStorage`, `sessionStorage`, IndexedDB né nei cookie, e il diario esiste solo nella memoria della pagina. Solo se spunti tu «Păstrează jurnalul în acest browser» il testo (non cifrato) e un indicatore vengono salvati in `localStorage` (chiavi `bioenergoterapie.jurnal.*`); deselezionando vengono eliminati.
-- Rete: l'app non effettua alcuna richiesta di rete e non contiene link esterni; una CSP (`default-src 'none'`, script autorizzato tramite hash SHA-256, senza `'unsafe-inline'` per gli script) blocca qualsiasi caricamento esterno. In `<head>` compaiono solo indirizzi nei metadati Open Graph (`chiuta.github.io`), a cui l'app non accede.
+- Rete: l'app non effettua alcuna richiesta di rete e non carica nulla dall'esterno; gli unici link esterni si aprono solo al clic, in una nuova scheda: i 7 link ♪ verso Aurora e il link «Buy Me a Coffee»; una CSP (`default-src 'none'`, script autorizzato tramite hash SHA-256, senza `'unsafe-inline'` per gli script) blocca qualsiasi caricamento esterno. In `<head>` compaiono solo indirizzi nei metadati Open Graph (`chiuta.github.io`), a cui l'app non accede.
 - Permessi: non richiede permessi. «Ecran activ» (Screen Wake Lock) e «Distribuie» (Condividi; menu di condivisione o appunti) funzionano solo quando premi i pulsanti.
 - Zero telemetria, nessun account.
 

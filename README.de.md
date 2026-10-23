@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · **Deutsch** · [Magyar](README.hu.md)
 
-**Version:** 1.3.5 · **Zuletzt aktualisiert:** 2026-10-23
+**Version:** 1.3.6 · **Zuletzt aktualisiert:** 2026-10-23
 
 Oberflächensprachen: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -40,7 +40,7 @@ Im Code und im Browser geprüft:
 ## Datenschutz und Netzwerk
 
 - Lokaler Speicher: Standardmäßig schreibt die App nichts in `localStorage`, `sessionStorage`, IndexedDB oder Cookies, und das Tagebuch existiert nur im Speicher der Seite. Nur wenn du selbst „Păstrează jurnalul în acest browser“ ankreuzt, werden der (unverschlüsselte) Text und ein Indikator im `localStorage` gespeichert (Schlüssel `bioenergoterapie.jurnal.*`); Abwählen löscht sie.
-- Netzwerk: Die App stellt keinerlei Netzwerkanfragen und enthält keine externen Links; eine CSP (`default-src 'none'`, Skript per SHA-256-Hash autorisiert, kein `'unsafe-inline'` für Skripte) blockiert jedes externe Laden. Im `<head>` erscheinen nur Adressen in den Open-Graph-Metadaten (`chiuta.github.io`), auf die die App nicht zugreift.
+- Netzwerk: Die App stellt keinerlei Netzwerkanfragen und lädt nichts Externes nach; die einzigen externen Links öffnen sich nur per Klick in einem neuen Tab: die 7 ♪-Links zu Aurora und der Link „Buy Me a Coffee“; eine CSP (`default-src 'none'`, Skript per SHA-256-Hash autorisiert, kein `'unsafe-inline'` für Skripte) blockiert jedes externe Laden. Im `<head>` erscheinen nur Adressen in den Open-Graph-Metadaten (`chiuta.github.io`), auf die die App nicht zugreift.
 - Berechtigungen: Sie fordert keine Berechtigungen an. „Ecran activ“ (Screen Wake Lock) und „Distribuie“ (Teilen; Teilen-Menü oder Zwischenablage) funktionieren nur beim Drücken der Schaltflächen.
 - Keine Telemetrie, keine Konten.
 
