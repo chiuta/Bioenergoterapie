@@ -12,9 +12,13 @@
     "serviceWorker",
     "localStorage"
   ],
-  "storageKeys": [],
-  "sizeBytes": 430128,
-  "sha256": "f3462029590d83568199b60673a730dfa87561ff11d2a2ea7688fc594d04c5b8",
+  "storageKeys": [
+    "bioenergoterapie.jurnal.pastrare",
+    "bioenergoterapie.jurnal.text",
+    "bioenergoterapie.lang"
+  ],
+  "sizeBytes": 430217,
+  "sha256": "9076529f9f6c9c3c66c5a2d491b69585b63af9100373cdb21b5769488ec93d40",
   "csp": {
     "present": true,
     "directives": {
