@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · **Português** · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versão:** 1.3.5 · **Última atualização:** 2026-10-23
+**Versão:** 1.3.6 · **Última atualização:** 2026-10-23
 
 Idiomas da interface: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -40,7 +40,7 @@ Verificadas no código e no navegador:
 ## Privacidade e rede
 
 - Armazenamento local: por predefinição, a aplicação não escreve nada em `localStorage`, `sessionStorage`, IndexedDB nem cookies, e o diário existe apenas na memória da página. Só se o utilizador assinalar «Păstrează jurnalul în acest browser» é que o texto (não cifrado) e um indicador são guardados em `localStorage` (chaves `bioenergoterapie.jurnal.*`); desassinalar elimina-os.
-- Rede: a aplicação não faz qualquer pedido de rede e não contém ligações externas; uma CSP (`default-src 'none'`, script autorizado por hash SHA-256, sem `'unsafe-inline'` para scripts) bloqueia qualquer carregamento externo. No `<head>` surgem apenas endereços nos metadados Open Graph (`chiuta.github.io`), a que a aplicação não acede.
+- Rede: a aplicação não faz qualquer pedido de rede e não carrega nada externo; as únicas ligações externas abrem-se apenas ao clicar, num novo separador: as 7 ligações ♪ para o Aurora e a ligação «Buy Me a Coffee»; uma CSP (`default-src 'none'`, script autorizado por hash SHA-256, sem `'unsafe-inline'` para scripts) bloqueia qualquer carregamento externo. No `<head>` surgem apenas endereços nos metadados Open Graph (`chiuta.github.io`), a que a aplicação não acede.
 - Permissões: não pede permissões. «Ecran activ» (Screen Wake Lock) e «Distribuie» (Partilhar; menu de partilha ou área de transferência) funcionam apenas ao premir os botões.
 - Zero telemetria, sem contas.
 

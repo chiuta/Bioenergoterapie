@@ -2,7 +2,7 @@
 
 [English](README.md) · **Română** · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versiune:** 1.3.5 · **Ultima actualizare:** 2026-10-23
+**Versiune:** 1.3.6 · **Ultima actualizare:** 2026-10-23
 
 Limbile interfeței: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -40,7 +40,7 @@ Verificate în cod și în browser:
 ## Confidențialitate și rețea
 
 - Stocare locală: implicit aplicația nu scrie nimic în `localStorage`, `sessionStorage`, IndexedDB sau cookie-uri, iar jurnalul există doar în memoria paginii. Doar dacă bifezi tu „Păstrează jurnalul în acest browser”, textul (necriptat) și un indicator se salvează în `localStorage` (chei `bioenergoterapie.jurnal.*`); debifarea le șterge.
-- Rețea: aplicația nu face nicio cerere de rețea și nu conține linkuri externe; o politică CSP (`default-src 'none'`, scriptul autorizat prin hash SHA-256, fără `'unsafe-inline'` pentru scripturi) blochează orice încărcare externă. În `<head>` apar doar adrese în metadatele Open Graph (`chiuta.github.io`), neaccesate de aplicație.
+- Rețea: aplicația nu face nicio cerere de rețea și nu încarcă nimic extern; singurele linkuri externe se deschid doar la click, în filă nouă: cele 7 linkuri ♪ spre Aurora și linkul „Buy Me a Coffee”; o politică CSP (`default-src 'none'`, scriptul autorizat prin hash SHA-256, fără `'unsafe-inline'` pentru scripturi) blochează orice încărcare externă. În `<head>` apar doar adrese în metadatele Open Graph (`chiuta.github.io`), neaccesate de aplicație.
 - Permisiuni: nu cere permisiuni. „Ecran activ" (Screen Wake Lock) și „Distribuie" (meniul de partajare sau clipboard) funcționează doar la apăsarea butoanelor.
 - Zero telemetrie, fără conturi.
 

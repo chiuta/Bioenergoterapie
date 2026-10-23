@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · **Français** · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version :** 1.3.5 · **Dernière mise à jour :** 2026-10-23
+**Version :** 1.3.6 · **Dernière mise à jour :** 2026-10-23
 
 Langues de l'interface : **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -40,7 +40,7 @@ Vérifiées dans le code et dans le navigateur :
 ## Confidentialité et réseau
 
 - Stockage local : par défaut, l'application n'écrit rien dans `localStorage`, `sessionStorage`, IndexedDB ni dans des cookies, et le journal n'existe que dans la mémoire de la page. Ce n'est que si vous cochez vous-même « Păstrează jurnalul în acest browser » que le texte (non chiffré) et un indicateur sont enregistrés dans `localStorage` (clés `bioenergoterapie.jurnal.*`) ; décocher les supprime.
-- Réseau : l'application n'effectue aucune requête réseau et ne contient aucun lien externe ; une CSP (`default-src 'none'`, script autorisé par hachage SHA-256, sans `'unsafe-inline'` pour les scripts) bloque tout chargement externe. Dans `<head>`, on ne trouve que des adresses dans les métadonnées Open Graph (`chiuta.github.io`), auxquelles l'application n'accède pas.
+- Réseau : l'application n'effectue aucune requête réseau et ne charge rien d'externe ; les seuls liens externes ne s'ouvrent qu'au clic, dans un nouvel onglet : les 7 liens ♪ vers Aurora et le lien « Buy Me a Coffee » ; une CSP (`default-src 'none'`, script autorisé par hachage SHA-256, sans `'unsafe-inline'` pour les scripts) bloque tout chargement externe. Dans `<head>`, on ne trouve que des adresses dans les métadonnées Open Graph (`chiuta.github.io`), auxquelles l'application n'accède pas.
 - Autorisations : aucune autorisation demandée. « Ecran activ » (Screen Wake Lock) et « Distribuie » (Partager ; menu de partage ou presse-papiers) ne fonctionnent qu'à l'appui sur les boutons.
 - Zéro télémétrie, pas de comptes.
 

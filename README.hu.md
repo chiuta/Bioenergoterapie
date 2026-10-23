@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · **Magyar**
 
-**Verzió:** 1.3.5 · **Utolsó frissítés:** 2026-10-23
+**Verzió:** 1.3.6 · **Utolsó frissítés:** 2026-10-23
 
 A felület nyelvei: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -40,7 +40,7 @@ A kódban és a böngészőben ellenőrizve:
 ## Adatvédelem és hálózat
 
 - Helyi tárolás: alapértelmezés szerint az alkalmazás semmit nem ír a `localStorage`-ba, a `sessionStorage`-ba, az IndexedDB-be vagy a sütikbe, és a napló csak az oldal memóriájában létezik. Csak ha te magad bejelölöd a „Păstrează jurnalul în acest browser” lehetőséget, mentődik a (titkosítatlan) szöveg és egy jelző a `localStorage`-ba (kulcsok: `bioenergoterapie.jurnal.*`); a jelölés törlése eltávolítja őket.
-- Hálózat: az alkalmazás semmilyen hálózati kérést nem indít, és nem tartalmaz külső hivatkozásokat; a CSP (`default-src 'none'`, a szkript SHA-256 hash-sel engedélyezve, szkriptekhez `'unsafe-inline'` nélkül) minden külső betöltést blokkol. A `<head>`-ben csak az Open Graph metaadatokban szerepelnek címek (`chiuta.github.io`), amelyeket az alkalmazás nem ér el.
+- Hálózat: az alkalmazás semmilyen hálózati kérést nem indít, és semmit sem tölt be kívülről; az egyetlen külső hivatkozások csak kattintásra, új lapon nyílnak meg: a 7 ♪ hivatkozás az Aurorára és a „Buy Me a Coffee” hivatkozás; a CSP (`default-src 'none'`, a szkript SHA-256 hash-sel engedélyezve, szkriptekhez `'unsafe-inline'` nélkül) minden külső betöltést blokkol. A `<head>`-ben csak az Open Graph metaadatokban szerepelnek címek (`chiuta.github.io`), amelyeket az alkalmazás nem ér el.
 - Engedélyek: nem kér engedélyeket. Az „Ecran activ” (Screen Wake Lock) és a „Distribuie” (Megosztás; megosztási menü vagy vágólap) csak a gombok megnyomásakor működik.
 - Nulla telemetria, nincsenek fiókok.
 
