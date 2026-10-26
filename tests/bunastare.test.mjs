@@ -1,0 +1,52 @@
+// Jurnal de bunăstare + rutine de relaxare (v2.0.0). Rulare: node tests/bunastare.test.mjs
+import {createRequire} from 'module'; import path from 'node:path'; import {fileURLToPath} from 'node:url'; import fs from 'node:fs';
+const require = createRequire(process.env.PW_ROOT || import.meta.url); const {chromium} = require('playwright');
+const HERE = path.dirname(fileURLToPath(import.meta.url)); const FILE = 'file://' + path.join(HERE, '..', 'index.html');
+let ok = 0, bad = 0; const t = (n, c, x) => { if (c) { ok++; console.log('  ok  ', n); } else { bad++; console.log('  FAIL', n, x ?? ''); } };
+const b = await chromium.launch({executablePath: process.env.CHROMIUM_PATH || undefined, args: ['--no-sandbox']});
+const ctx = await b.newContext({viewport: {width: 1100, height: 900}, locale: 'en-US', acceptDownloads: true});
+const net = []; await ctx.route(/^https?:/, r => { net.push(r.request().url()); r.abort(); });
+const p = await ctx.newPage(); const errs = []; p.on('pageerror', e => errs.push(e.message)); p.on('console', m => { if (m.type() === 'error') errs.push(m.text()); });
+await p.clock.install({time: new Date('2026-10-26T10:00:00Z')});
+await p.goto(FILE); await p.waitForTimeout(300);
+const sel = await p.$('#langSel') ? '#langSel' : '#uiLang'; await p.selectOption(sel, 'en');
+await p.click('a[data-target="bunastare"]');
+t('panou vizibil', await p.isVisible('#p-bunastare'));
+t('avertisment: nu diagnostic/tratament', /not a diagnosis, a treatment/.test(await p.textContent('#p-bunastare')));
+// rutina centrare 2 min
+await p.selectOption('#bwRoutine', 'center'); await p.click('#bwStart');
+t('pasul 1 Așezare', /Settling in/.test(await p.textContent('#bwStep')));
+await p.clock.runFor(21000); t('pasul 2 după 20 s', /Hands in your lap/.test(await p.textContent('#bwStep')), await p.textContent('#bwStep'));
+await p.click('#bwPause'); const c0 = await p.textContent('#bwClock'); await p.clock.runFor(20000); t('pauză oprește ceasul', (await p.textContent('#bwClock')) === c0);
+await p.click('#bwPause'); await p.click('#bwSkip'); t('pasul următor', /Attention on the breath/.test(await p.textContent('#bwStep')));
+await p.click('#bwStop'); t('oprire', /Routine stopped/.test(await p.textContent('#bwStep')) && !(await p.isDisabled('#bwStart')));
+// respirație: indicator inspiră/expiră
+await p.selectOption('#bwRoutine', 'breath'); await p.click('#bwStart'); await p.clock.runFor(22000);
+const ph1 = await p.textContent('#bwBreath'); await p.clock.runFor(5000); const ph2 = await p.textContent('#bwBreath');
+t('indicator de respirație alternează', ph1 !== ph2 && /Breathe/.test(ph1 + ph2), [ph1, ph2]);
+await p.click('#bwStop');
+await p.clock.runFor(1);
+// jurnal
+await p.selectOption('#bwMood', '4'); await p.selectOption('#bwEnergy', '2'); await p.selectOption('#bwStress', '5'); await p.fill('#bwSleep', '7.5'); await p.fill('#bwNote', '=cmd test, "q"');
+await p.click('#bwForm button[type=submit]');
+t('o intrare în tabel', (await p.$$('#bwBody tr')).length === 1 && /1 entries/.test(await p.textContent('#bwCount')));
+t('fără grafic cu o intrare', await p.isHidden('#bwFig'));
+await p.fill('#bwDate', '2026-10-20'); await p.selectOption('#bwMood', '2'); await p.click('#bwForm button[type=submit]');
+t('a doua intrare: ordonate descrescător', (await p.$$eval('#bwBody tr td:first-child', e => e.map(x => x.textContent))).join() === '2026-10-26,2026-10-20', await p.$$eval('#bwBody tr td:first-child', e => e.map(x => x.textContent)));
+t('grafic SVG cu 3 serii', await p.isVisible('#bwFig') && (await p.$$('#bwSvg polyline')).length === 3);
+t('medii calculate (dispoziție 3.0)', /mood 3\.0/.test(await p.textContent('#bwAvg')), await p.textContent('#bwAvg'));
+t('implicit nimic în localStorage', await p.evaluate(() => localStorage.getItem('bioenergoterapie.bunastare') === null));
+await p.check('#bwKeep');
+t('păstrare activată: date în localStorage', await p.evaluate(() => JSON.parse(localStorage.getItem('bioenergoterapie.bunastare')).length === 2));
+const [dl] = await Promise.all([p.waitForEvent('download'), p.click('#bwCsv')]);
+const csv = fs.readFileSync(await dl.path(), 'utf8'); t('CSV: antet și protecție la injecție de formule', csv.startsWith('date,mood,energy,stress,sleep_hours,note') && csv.includes("\"'=cmd test, \"\"q\"\"\""), csv);
+await p.reload(); await p.waitForTimeout(300); await p.click('a[data-target="bunastare"]');
+t('intrările persistă după reîncărcare', (await p.$$('#bwBody tr')).length === 2);
+await p.click('#bwBody tr >> nth=0 >> button'); await p.waitForSelector('dialog[open]'); await p.click('dialog[open] .fff-primary'); await p.waitForTimeout(150);
+t('ștergere cu dialog propriu', (await p.$$('#bwBody tr')).length === 1);
+await p.click('#bwClear'); await p.waitForSelector('dialog[open]'); await p.click('dialog[open] .fff-primary'); await p.waitForTimeout(150);
+t('șterge tot', (await p.$$('#bwBody tr')).length === 0 && await p.isVisible('#bwEmpty'));
+await p.uncheck('#bwKeep'); t('dezactivarea șterge datele locale', await p.evaluate(() => localStorage.getItem('bioenergoterapie.bunastare') === null && localStorage.getItem('bioenergoterapie.bunastare.pastrare') === null));
+await p.selectOption(sel, 'ro'); t('RO: titlu', /Jurnal de bunăstare/.test(await p.textContent('#p-bunastare h2')));
+t('fără erori/CSP', errs.length === 0, errs); t('0 cereri de rețea', net.length === 0, net);
+await b.close(); console.log(`\n${ok} reușite, ${bad} eșuate`); process.exit(bad ? 1 : 0);

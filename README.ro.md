@@ -2,7 +2,7 @@
 
 [English](README.md) · **Română** · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versiune:** 1.3.6 · **Ultima actualizare:** 2026-10-26
+**Versiune:** 2.0.0 · **Ultima actualizare:** 2026-10-26
 
 Limbile interfeței: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -57,6 +57,10 @@ Verificate în cod și în browser:
 Descarcă `index.html` și deschide-l în browser; nu are nevoie de internet. Pentru GitHub Pages, publică repository-ul (fișierul `.nojekyll` este inclus).
 
 ## Istoric / Changelog
+
+### 2.0.0 — 2026-10-26
+
+Secțiune nouă „Jurnal de bunăstare”: autoevaluări zilnice (dispoziție, energie, tensiune, somn, notă), grafic de evoluție și medii, păstrare locală opțională, export CSV/JSON, plus trei rutine de relaxare ghidate cu temporizator (respirație calmă, scanare corporală, centrare). Fără afirmații terapeutice: nu este diagnostic sau tratament. Test: `tests/bunastare.test.mjs`.
 
 ### 1.3.4 — 2026-10-22
 - fff-kit 1.1.4: ținte tactile și text minim; ținte tactile/text corectate
