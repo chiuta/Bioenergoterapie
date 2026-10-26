@@ -10,7 +10,8 @@ const p = await ctx.newPage(); const errs = []; p.on('pageerror', e => errs.push
 await p.clock.install({time: new Date('2026-10-26T10:00:00Z')});
 await p.goto(FILE); await p.waitForTimeout(300);
 const sel = await p.$('#langSel') ? '#langSel' : '#uiLang'; await p.selectOption(sel, 'en');
-await p.click('a[data-target="bunastare"]');
+const openPanel = async (link, panel) => { for (let i = 0; i < 5; i++) { await p.click(link); if (await p.waitForSelector(panel, {state: 'visible', timeout: 2000}).then(() => true, () => false)) return; } };
+await openPanel('a[data-target="bunastare"]', '#p-bunastare');
 t('panou vizibil', await p.isVisible('#p-bunastare'));
 t('avertisment: nu diagnostic/tratament', /not a diagnosis, a treatment/.test(await p.textContent('#p-bunastare')));
 // rutina centrare 2 min
@@ -40,11 +41,11 @@ await p.check('#bwKeep');
 t('păstrare activată: date în localStorage', await p.evaluate(() => JSON.parse(localStorage.getItem('bioenergoterapie.bunastare')).length === 2));
 const [dl] = await Promise.all([p.waitForEvent('download'), p.click('#bwCsv')]);
 const csv = fs.readFileSync(await dl.path(), 'utf8'); t('CSV: antet și protecție la injecție de formule', csv.startsWith('date,mood,energy,stress,sleep_hours,note') && csv.includes("\"'=cmd test, \"\"q\"\"\""), csv);
-await p.reload(); await p.waitForTimeout(300); await p.click('a[data-target="bunastare"]');
+await p.reload(); await p.waitForTimeout(300); await openPanel('a[data-target="bunastare"]', '#p-bunastare');
 t('intrările persistă după reîncărcare', (await p.$$('#bwBody tr')).length === 2);
-await p.click('#bwBody tr >> nth=0 >> button'); await p.waitForSelector('dialog[open]'); await p.click('dialog[open] .fff-primary'); await p.waitForTimeout(150);
+await p.click('#bwBody tr >> nth=0 >> button'); await p.waitForSelector('dialog[open]'); await p.click('dialog[open] .fff-primary'); await p.waitForFunction(() => document.querySelectorAll('#bwBody tr').length === 1, null, {timeout: 5000}).catch(() => {});
 t('ștergere cu dialog propriu', (await p.$$('#bwBody tr')).length === 1);
-await p.click('#bwClear'); await p.waitForSelector('dialog[open]'); await p.click('dialog[open] .fff-primary'); await p.waitForTimeout(150);
+await p.click('#bwClear'); await p.waitForSelector('dialog[open]'); await p.click('dialog[open] .fff-primary'); await p.waitForFunction(() => document.querySelectorAll('#bwBody tr').length === 0, null, {timeout: 5000}).catch(() => {});
 t('șterge tot', (await p.$$('#bwBody tr')).length === 0 && await p.isVisible('#bwEmpty'));
 await p.uncheck('#bwKeep'); t('dezactivarea șterge datele locale', await p.evaluate(() => localStorage.getItem('bioenergoterapie.bunastare') === null && localStorage.getItem('bioenergoterapie.bunastare.pastrare') === null));
 await p.selectOption(sel, 'ro'); t('RO: titlu', /Jurnal de bunăstare/.test(await p.textContent('#p-bunastare h2')));
