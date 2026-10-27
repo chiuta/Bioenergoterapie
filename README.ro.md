@@ -2,7 +2,7 @@
 
 [English](README.md) · **Română** · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versiune:** 2.0.1 · **Ultima actualizare:** 2026-10-27
+**Versiune:** 2.0.2 · **Ultima actualizare:** 2026-10-27
 
 **Stare:** stabil; studiu descriptiv (fără afirmații terapeutice) · **Offline:** complet (fără cereri de rețea)
 
@@ -60,7 +60,14 @@ Descarcă `index.html` și deschide-l în browser; nu are nevoie de internet. Pe
 
 ## Panoul de dovezi: surse (2026-10-27)
 
-Panoul „Ce spun dovezile” primește un bloc **Surse** în 8 limbi: Rosa et al., *JAMA* 1998;279(13):1005-1010 (Therapeutic Touch); O'Mathúna, *Cochrane Database Syst Rev* 2016;(5):CD002766; Jain & Mills, *Int J Behav Med* 2010;17(1):1-16. Pentru Pranic Healing / bioenergoterapie ca sistem nu s-a găsit nicio recenzie sistematică dedicată: marcat „sursă de completat”. Fără afirmații terapeutice.
+Panoul „Ce spun dovezile” primește un bloc **Surse** în 8 limbi: Rosa et al., *JAMA* 1998;279(13):1005-1010 (Therapeutic Touch); O'Mathúna, *Cochrane Database Syst Rev*, CD002766 (**retrasă**, vezi mai jos); Jain & Mills, *Int J Behav Med* 2010;17(1):1-16. Pentru Pranic Healing / bioenergoterapie ca sistem nu s-a găsit nicio recenzie sistematică dedicată: marcat „sursă de completat”. Fără afirmații terapeutice.
+
+### Verificarea surselor (2026-10-27, 2.0.2)
+
+- **Rosa et al., JAMA 1998;279(13):1005-1010**: citare confirmată pe pagina JAMA Network (jamanetwork.com/journals/jama/fullarticle/187390).
+- **O'Mathúna, recenzia Cochrane CD002766: RETRASĂ.** Pagina Cochrane Library a versiunii pub6 (DOI 10.1002/14651858.CD002766.pub6) spune: „This review has been withdrawn due to serious concerns over the validity of included studies” (notificare din 23/08/16). Textul anterior o cita ca „2016;(5)” și rezuma concluzia ei; ambele au fost scoase: blocul Surse spune acum că recenzia a fost retrasă, iar rezumatul nu o mai invocă drept dovadă. Există versiuni mai vechi (de exemplu pub4, căutări până în ianuarie 2014), dar nici ele nu sunt citate.
+- **Jain & Mills, Int J Behav Med 2010**: titlul și DOI 10.1007/s12529-009-9062-4 confirmate (înregistrarea eScholarship); volumul, numărul și paginile 17(1):1-16 NU au fost vizibile în paginile pe care le-am putut deschide, deci rămân de reconfirmat de autor.
+- Pranic Healing ca sistem: în continuare „sursă de completat”.
 
 ## Istoric / Changelog
 
