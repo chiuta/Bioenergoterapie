@@ -2,7 +2,9 @@
 
 **English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version:** 2.0.0 · **Last updated:** 2026-10-26
+**Version:** 2.0.1 · **Last updated:** 2026-10-27
+
+**Status:** stable; descriptive study (no therapeutic claims) · **Offline:** complete (no network requests)
 
 Interface languages: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -55,6 +57,10 @@ Checked in the code and in the browser:
 ## Running locally / offline
 
 Download `index.html` and open it in a browser; it needs no internet. For GitHub Pages, publish the repository (the `.nojekyll` file is included).
+
+## Evidence panel: sources (2026-10-27)
+
+The "What the evidence says" panel gets a **Sources** block in all 8 languages: Rosa et al., *JAMA* 1998;279(13):1005-1010 (Therapeutic Touch); O'Mathúna, *Cochrane Database Syst Rev* 2016;(5):CD002766; Jain & Mills, *Int J Behav Med* 2010;17(1):1-16. For Pranic Healing / bioenergotherapy as a system no dedicated systematic review was found: marked "source to be completed". No therapeutic claim.
 
 ## History / Changelog
 
