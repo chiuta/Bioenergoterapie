@@ -2,7 +2,7 @@
 
 **English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version:** 2.0.1 · **Last updated:** 2026-10-27
+**Version:** 2.0.2 · **Last updated:** 2026-10-27
 
 **Status:** stable; descriptive study (no therapeutic claims) · **Offline:** complete (no network requests)
 
@@ -60,7 +60,14 @@ Download `index.html` and open it in a browser; it needs no internet. For GitHub
 
 ## Evidence panel: sources (2026-10-27)
 
-The "What the evidence says" panel gets a **Sources** block in all 8 languages: Rosa et al., *JAMA* 1998;279(13):1005-1010 (Therapeutic Touch); O'Mathúna, *Cochrane Database Syst Rev* 2016;(5):CD002766; Jain & Mills, *Int J Behav Med* 2010;17(1):1-16. For Pranic Healing / bioenergotherapy as a system no dedicated systematic review was found: marked "source to be completed". No therapeutic claim.
+The "What the evidence says" panel gets a **Sources** block in all 8 languages: Rosa et al., *JAMA* 1998;279(13):1005-1010 (Therapeutic Touch); O'Mathúna, *Cochrane Database Syst Rev*, CD002766 (**withdrawn**, see below); Jain & Mills, *Int J Behav Med* 2010;17(1):1-16. For Pranic Healing / bioenergotherapy as a system no dedicated systematic review was found: marked "source to be completed". No therapeutic claim.
+
+### Source check (2026-10-27, 2.0.2)
+
+- **Rosa et al., JAMA 1998;279(13):1005-1010**: citation confirmed on the JAMA Network page (jamanetwork.com/journals/jama/fullarticle/187390).
+- **O'Mathúna, Cochrane review CD002766: WITHDRAWN.** The Cochrane Library page of version pub6 (DOI 10.1002/14651858.CD002766.pub6) states: "This review has been withdrawn due to serious concerns over the validity of included studies" (notice dated 23/08/16). The earlier text cited it as "2016;(5)" and summarised its conclusion; both are removed: the Sources block now says the review was withdrawn and the summary no longer invokes it as evidence. Earlier versions of the review (e.g. pub4, searches up to January 2014) exist, but they are not cited either.
+- **Jain & Mills, Int J Behav Med 2010**: title and DOI 10.1007/s12529-009-9062-4 confirmed (eScholarship record); the volume, issue and pages 17(1):1-16 were NOT visible on the pages I could open, so they remain to be reconfirmed by the author.
+- Pranic Healing as a system: still "source to be completed".
 
 ## History / Changelog
 
