@@ -2,7 +2,9 @@
 
 [English](README.md) · **Română** · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versiune:** 2.0.0 · **Ultima actualizare:** 2026-10-26
+**Versiune:** 2.0.1 · **Ultima actualizare:** 2026-10-27
+
+**Stare:** stabil; studiu descriptiv (fără afirmații terapeutice) · **Offline:** complet (fără cereri de rețea)
 
 Limbile interfeței: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -55,6 +57,10 @@ Verificate în cod și în browser:
 ## Rulare locală / offline
 
 Descarcă `index.html` și deschide-l în browser; nu are nevoie de internet. Pentru GitHub Pages, publică repository-ul (fișierul `.nojekyll` este inclus).
+
+## Panoul de dovezi: surse (2026-10-27)
+
+Panoul „Ce spun dovezile” primește un bloc **Surse** în 8 limbi: Rosa et al., *JAMA* 1998;279(13):1005-1010 (Therapeutic Touch); O'Mathúna, *Cochrane Database Syst Rev* 2016;(5):CD002766; Jain & Mills, *Int J Behav Med* 2010;17(1):1-16. Pentru Pranic Healing / bioenergoterapie ca sistem nu s-a găsit nicio recenzie sistematică dedicată: marcat „sursă de completat”. Fără afirmații terapeutice.
 
 ## Istoric / Changelog
 
