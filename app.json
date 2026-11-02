@@ -13,8 +13,8 @@
     "localStorage"
   ],
   "storageKeys": [],
-  "sizeBytes": 463745,
-  "sha256": "2e6fa7190f4cb69a3db7bb5dd4def7cce349f0b6c5315ab5156ac6df283d5a05",
+  "sizeBytes": 604179,
+  "sha256": "4cbd2bf2dc512247d1753792250dca7a9e2feee9455bf8f5c74090670f2ca0a1",
   "csp": {
     "present": true,
     "directives": {
@@ -52,7 +52,11 @@
       "store",
       "dialog",
       "label",
-      "bundle"
+      "bundle",
+      "qr",
+      "p2p",
+      "sync",
+      "history"
     ]
   },
   "kit": {
@@ -62,7 +66,11 @@
       "store",
       "dialog",
       "label",
-      "bundle"
+      "bundle",
+      "qr",
+      "p2p",
+      "sync",
+      "history"
     ]
   },
   "selfSerializing": false
