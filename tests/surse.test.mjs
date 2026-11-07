@@ -9,5 +9,5 @@ t('fără formularea veche „2016;(5):CD002766"', !/2016;\(5\):CD002766/.test(h
 t('rezumatele nu mai spun că recenzia Cochrane a găsit/nu a găsit dovezi', !/(Cochrane review found no evidence|recenzia Cochrane nu a găsit|revue Cochrane n’a trouvé|revisione Cochrane non ha trovato|revisión Cochrane no halló|revisão Cochrane não encontrou|Cochrane-Review fand keine|Cochrane-áttekintés nem talált)/.test(h));
 t('DOI Jain & Mills prezent în 8 limbi', (h.match(/10\.1007\/s12529-009-9062-4/g) || []).length === 8);
 const meta = JSON.parse(fs.readFileSync(path.join(HERE, '..', 'app.json'), 'utf8'));
-t('versiune 2.0.3', meta.version === '2.0.3');
+t('versiune 2.0.4', meta.version === '2.0.4');
 console.log(`\n${ok} reușite, ${bad} eșuate`); process.exit(bad ? 1 : 0);
