@@ -10,16 +10,17 @@
     "navigator.share",
     "clipboard",
     "serviceWorker",
-    "localStorage"
+    "localStorage",
+    "WebGL"
   ],
   "storageKeys": [],
-  "sizeBytes": 659794,
-  "sha256": "5f901352613de5da4d3c275177da1ed54ba794ccae424d24c2bf6f5043f75e02",
+  "sizeBytes": 711821,
+  "sha256": "ac24ee26409aeb96635bbbb87dbef1d7410d0e4176fe47eb48cac7f31cceeb49",
   "csp": {
     "present": true,
     "directives": {
       "default-src": "'none'",
-      "script-src": "'self' sha256×4",
+      "script-src": "'self' sha256×5",
       "style-src": "'unsafe-inline'",
       "img-src": "'self' data:",
       "base-uri": "'none'",
